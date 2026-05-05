@@ -1,0 +1,289 @@
+{
+  "category": "common-failures",
+  "title": "Common HVAC Failures & Diagnostic Trees",
+  "lastUpdated": "2026-03-14",
+  "entries": [
+    {
+      "id": "cf-001",
+      "fault": "Bad Run Capacitor",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "frequency": "very_common",
+      "symptoms": ["Compressor not running", "Fan not running (indoor or outdoor)", "Unit not turning on", "Loud noise / vibration", "Tripping breaker / blowing fuses"],
+      "diagnosticSteps": [
+        "Visual inspect capacitor for bulging, leaking, or burn marks",
+        "Disconnect power and discharge capacitor safely",
+        "Use multimeter on capacitance mode (μF setting)",
+        "Compare reading to rating printed on capacitor",
+        "Acceptable range: within ±6% of rated value",
+        "If dual-run cap: test both HERM (compressor) and FAN sides separately",
+        "Common rated values - compressor side: 35-60μF, fan side: 5-10μF"
+      ],
+      "rootCauses": [
+        "Age/heat degradation (most common - caps last 5-15 years)",
+        "Electrical surges or lightning",
+        "Overheating from restricted airflow around condenser",
+        "Wrong replacement capacitor installed previously"
+      ],
+      "repairProcedure": "Replace with exact same μF and voltage rating. Use 370V or 440V rated. Match HERM/FAN/COM terminals. Always discharge old cap before handling. Verify amp draw after replacement.",
+      "estimatedTime": "15-30 minutes",
+      "partsCost": "$8-$35",
+      "laborCost": "$75-$200",
+      "commonMistakes": [
+        "Not discharging capacitor before testing - shock hazard",
+        "Installing wrong μF rating - causes motor overheating",
+        "Not checking amp draw after replacement to verify fix",
+        "Assuming compressor is bad without testing cap first"
+      ]
+    },
+    {
+      "id": "cf-002",
+      "fault": "Low Refrigerant Charge",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "frequency": "very_common",
+      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Short cycling (turns on/off rapidly)", "Compressor not running"],
+      "diagnosticSteps": [
+        "Connect gauges - check suction and discharge pressures",
+        "Compare to saturation temp for refrigerant type at current ambient",
+        "Calculate superheat: suction line temp minus suction saturation temp",
+        "High superheat (>15°F on TXV, >25°F on piston) confirms low charge",
+        "Calculate subcooling: condensing temp minus liquid line temp",
+        "Low subcooling (<5°F on TXV) also indicates low charge",
+        "Check for obvious leak signs: oil stains at joints, service valves, evap coil",
+        "Use electronic leak detector at all brazed joints, flare connections, Schrader valves",
+        "Check evaporator and condenser coils for micro-leaks",
+        "UV dye test for hard-to-find leaks"
+      ],
+      "rootCauses": [
+        "Leak at brazed joint (most common - vibration fatigue)",
+        "Leaking Schrader valve core",
+        "Evaporator coil leak (corrosion from formicary corrosion or galvanic corrosion)",
+        "Condenser coil leak (lawn mower damage, corrosion)",
+        "Flare connection leak (improper torque or damaged flare)",
+        "Factory charge insufficient for long line sets",
+        "Previous tech did not weigh in charge properly"
+      ],
+      "pressureSignatures": {
+        "R-410A": {
+          "normal": { "suction": "118-125 psig", "discharge": "375-415 psig" },
+          "lowCharge": { "suction": "80-100 psig", "discharge": "280-340 psig" },
+          "veryLow": { "suction": "< 80 psig", "discharge": "< 280 psig" }
+        },
+        "R-22": {
+          "normal": { "suction": "68-75 psig", "discharge": "225-265 psig" },
+          "lowCharge": { "suction": "45-60 psig", "discharge": "180-210 psig" },
+          "veryLow": { "suction": "< 45 psig", "discharge": "< 180 psig" }
+        }
+      },
+      "repairProcedure": "1. Find and repair leak first - NEVER just add refrigerant without leak repair. 2. Recover remaining charge. 3. Pull vacuum to 500 microns, hold for 15 min. 4. Weigh in factory charge per nameplate. 5. Adjust for line set length (typically +0.6 oz per foot over 25ft for R-410A). 6. Verify superheat and subcooling after charge.",
+      "estimatedTime": "1-4 hours (depends on leak location)",
+      "partsCost": "$50-$300 (refrigerant) + leak repair",
+      "commonMistakes": [
+        "Adding refrigerant without finding leak - customer callback guaranteed",
+        "Charging by pressure alone instead of weighing in or using superheat/subcool method",
+        "Not pulling vacuum after repair - moisture contamination",
+        "Not checking for restrictions (filter drier, TXV) that mimic low charge"
+      ]
+    },
+    {
+      "id": "cf-003",
+      "fault": "Dirty Condenser Coil",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "frequency": "very_common",
+      "symptoms": ["Not cooling / insufficient cooling", "High energy bills", "Short cycling (turns on/off rapidly)", "Tripping breaker / blowing fuses"],
+      "diagnosticSteps": [
+        "Visual inspection of condenser coil - look for matted debris, cottonwood, grass clippings",
+        "Check discharge pressure - will be elevated above normal",
+        "Check subcooling - may be high (>20°F) due to liquid backing up",
+        "Check condenser split: ambient temp vs condensing temp - should be 15-25°F, dirty coil shows >30°F",
+        "Check amp draw - will be elevated due to high head pressure"
+      ],
+      "rootCauses": [
+        "Normal environmental debris (cottonwood, dust, pollen)",
+        "Pet hair accumulation",
+        "Landscaping too close to unit (needs 24\" clearance minimum)",
+        "Lack of annual maintenance"
+      ],
+      "repairProcedure": "1. Turn off system. 2. Remove top grille/fan assembly if needed. 3. Spray coil cleaner (Nu-Calgon or equivalent) from inside out. 4. Let soak 5-10 minutes. 5. Rinse with garden hose from inside out - never use pressure washer (bends fins). 6. Straighten any bent fins with fin comb. 7. Verify amp draw and pressures return to normal.",
+      "estimatedTime": "30-60 minutes",
+      "partsCost": "$10-$20 (coil cleaner)",
+      "laborCost": "$100-$250"
+    },
+    {
+      "id": "cf-004",
+      "fault": "Dirty/Clogged Air Filter",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "frequency": "very_common",
+      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Not heating / insufficient heating", "High energy bills", "Short cycling (turns on/off rapidly)"],
+      "diagnosticSteps": [
+        "Check filter - hold up to light, if no light passes through it's too dirty",
+        "Check static pressure across filter - should be < 0.3\" WC for 1\" filter",
+        "Check temperature split across coil - should be 16-22°F cooling",
+        "Low airflow causes: suction pressure drops, superheat increases, coil may frost"
+      ],
+      "repairProcedure": "Replace filter. Educate customer on filter change interval (30-90 days depending on type). If coil is frozen, turn system to fan-only for 2-4 hours to defrost before restarting.",
+      "estimatedTime": "5-10 minutes",
+      "partsCost": "$5-$25"
+    },
+    {
+      "id": "cf-005",
+      "fault": "Contactor Failure",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "frequency": "common",
+      "symptoms": ["Compressor not running", "Unit not turning on", "Short cycling (turns on/off rapidly)", "Loud noise / vibration"],
+      "diagnosticSteps": [
+        "Check for 24V across contactor coil - should pull in when thermostat calls",
+        "Visual inspect contacts - look for pitting, arcing damage, or welded contacts",
+        "With contactor pulled in, check voltage across load-side contacts - should be <1V (near zero)",
+        "If >3V across closed contacts, replace contactor (resistance = heat)",
+        "Check for chattering - weak coil or low control voltage",
+        "Welded contactor: unit won't shut off, runs continuously"
+      ],
+      "rootCauses": [
+        "Normal wear from electrical arcing (30,000-100,000 cycles lifespan)",
+        "Low 24V control voltage causing weak pull-in (chattering)",
+        "Insect nests in contactor housing (ants are common)",
+        "Pitted contacts from inrush current"
+      ],
+      "repairProcedure": "Replace contactor with same coil voltage (24V) and amp rating. Replace both if dual contactor setup. Check control voltage (24V transformer) while replacing. Clean housing of any debris.",
+      "estimatedTime": "20-40 minutes",
+      "partsCost": "$15-$50"
+    },
+    {
+      "id": "cf-006",
+      "fault": "Frozen Evaporator Coil",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "frequency": "common",
+      "symptoms": ["Freezing up / ice on unit", "Not cooling / insufficient cooling", "Water leaking indoors", "Unit runs but no temperature change"],
+      "diagnosticSteps": [
+        "Check suction line - ice or heavy condensation/frost confirms freezing",
+        "Check filter first - dirty filter is #1 cause",
+        "Check blower operation - is it running? Correct speed?",
+        "Check return air path - all registers open? Ductwork collapsed?",
+        "If airflow is good, check refrigerant charge - low charge can cause freeze too",
+        "Check TXV operation if equipped - stuck open causes flooding and freeze",
+        "Measure suction pressure - should match saturation temp above 32°F"
+      ],
+      "rootCauses": [
+        "Restricted airflow (dirty filter, closed registers, collapsed duct) - 70% of cases",
+        "Low refrigerant charge - 20% of cases",
+        "Blower motor failure or wrong speed setting - 5%",
+        "TXV stuck open or overfeeding - 5%",
+        "Running A/C below 60°F outdoor temp without low-ambient kit"
+      ],
+      "repairProcedure": "1. Turn system to FAN ONLY or OFF to defrost (2-4 hours). 2. Do NOT scrape ice off coil - damages fins. 3. Once defrosted, diagnose root cause. 4. Replace filter if dirty. 5. Check charge and airflow. 6. Restart and monitor for 15 min.",
+      "estimatedTime": "2-5 hours (including defrost time)",
+      "commonMistakes": [
+        "Trying to run system while coil is frozen - can slug compressor with liquid",
+        "Adding refrigerant to a frozen system without defrosting first - readings will be inaccurate",
+        "Not finding root cause - coil will freeze again"
+      ]
+    },
+    {
+      "id": "cf-007",
+      "fault": "Compressor Failure",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "frequency": "less_common",
+      "symptoms": ["Compressor not running", "Tripping breaker / blowing fuses", "Loud noise / vibration", "Not cooling / insufficient cooling"],
+      "diagnosticSteps": [
+        "BEFORE condemning compressor, ALWAYS check: capacitor, contactor, supply voltage, wiring",
+        "Check compressor windings with ohmmeter: C-R, C-S, R-S (R+S should equal C-R + C-S within 3%)",
+        "Check each winding to ground - any reading less than infinity = grounded compressor",
+        "Check amp draw: compare to RLA on nameplate - LRA on startup is normal for 0.5 sec",
+        "If drawing LRA continuously = locked rotor (mechanical seizure)",
+        "If open winding (infinite ohms between terminals) = open winding failure",
+        "Check crankcase heater operation - oil logging can cause liquid slugging on startup"
+      ],
+      "rootCauses": [
+        "Liquid slugging from flooded starts (no crankcase heater or TXV issue)",
+        "Loss of lubrication from refrigerant leak",
+        "Electrical failure from voltage issues or short cycling",
+        "Contaminated system (moisture, acid, debris from previous burnout)",
+        "Age - typical compressor life 12-20 years"
+      ],
+      "repairProcedure": "1. Confirm compressor is truly failed (not cap, contactor, or wiring). 2. If scroll compressor, check for reverse rotation (swapped wires). 3. If replacing: recover refrigerant, install filter drier, triple-evacuate, weigh in charge. 4. If burnout, flush lines with Rx-11 or equivalent. 5. Add burnout drier. 6. Recheck after 48 hours of operation.",
+      "estimatedTime": "4-8 hours",
+      "partsCost": "$800-$2500 (compressor)",
+      "commonMistakes": [
+        "Condemning compressor when capacitor was the actual problem - #1 misdiagnosis in HVAC",
+        "Not checking voltage and wiring before condemning",
+        "Not flushing system after burnout - contaminates new compressor",
+        "Not installing new filter drier with compressor replacement"
+      ]
+    },
+    {
+      "id": "cf-008",
+      "fault": "TXV (Thermostatic Expansion Valve) Failure",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "frequency": "common",
+      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Short cycling (turns on/off rapidly)"],
+      "diagnosticSteps": [
+        "Check superheat at evaporator outlet - should be 8-12°F for TXV system",
+        "Very low superheat (<3°F) = TXV stuck open / overfeeding → flooding coil, risk of slugging compressor",
+        "Very high superheat (>20°F) = TXV stuck closed / restricted → starving coil",
+        "Check subcooling at condenser - should be 10-15°F with TXV",
+        "Check TXV sensing bulb - must be firmly clamped to suction line with good thermal contact",
+        "Check bulb insulation - must be insulated from ambient air",
+        "Tap TXV body gently with wrench - sometimes frees stuck valve temporarily"
+      ],
+      "rootCauses": [
+        "Sensing bulb lost charge (capillary tube leak)",
+        "Debris/wax plugging valve seat",
+        "Moisture freeze-up at valve seat (inadequate vacuum before charge)",
+        "Wrong TXV size for tonnage",
+        "Sensing bulb improperly mounted or not insulated"
+      ],
+      "repairProcedure": "1. Verify sensing bulb position and insulation first (free fix if that's the issue). 2. If valve is failed: recover charge, braze in new TXV matched to tonnage and refrigerant. 3. Install new filter drier. 4. Evacuate to 500 microns. 5. Weigh in charge. 6. Verify superheat and subcooling after 15 min of operation.",
+      "estimatedTime": "2-4 hours",
+      "partsCost": "$100-$300"
+    },
+    {
+      "id": "cf-009",
+      "fault": "Blower Motor Failure",
+      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit"],
+      "frequency": "common",
+      "symptoms": ["Fan not running (indoor or outdoor)", "Not cooling / insufficient cooling", "Not heating / insufficient heating", "Loud noise / vibration"],
+      "diagnosticSteps": [
+        "Check for voltage at motor leads - should have line voltage (120V or 240V depending on motor)",
+        "PSC motor: check run capacitor first - most common cause of 'dead' motor",
+        "ECM/variable speed motor: check for fault codes on module LED",
+        "Spin motor shaft by hand - should turn freely. If stiff, bearings failed",
+        "Check amp draw - above nameplate FLA = motor overloaded or failing",
+        "Check blower wheel for debris, balance, setscrew loose on shaft"
+      ],
+      "rootCauses": [
+        "Bad run capacitor (PSC motors) - check this FIRST",
+        "Worn bearings from age",
+        "ECM control module failure (motor itself may be fine)",
+        "Overheating from restricted airflow (dirty filter, dirty blower wheel)",
+        "Voltage issues"
+      ],
+      "repairProcedure": "PSC motor: test and replace capacitor first ($10 fix vs $300 motor). ECM motor: try power cycling module first. If motor truly failed: match HP, RPM, rotation, shaft size, and mounting. Verify correct speed tap for application.",
+      "estimatedTime": "1-3 hours",
+      "partsCost": "$100-$800 (ECM motors are more expensive)"
+    },
+    {
+      "id": "cf-010",
+      "fault": "Reversing Valve Failure (Heat Pump)",
+      "equipmentTypes": ["Heat Pump", "Mini-Split"],
+      "frequency": "less_common",
+      "symptoms": ["Reversing valve issue (heat pump)", "Not heating / insufficient heating", "Not cooling / insufficient cooling"],
+      "diagnosticSteps": [
+        "System cools when it should heat (or vice versa) - valve stuck in wrong position",
+        "Both suction and discharge lines same temperature = valve body leaking internally",
+        "Check 24V solenoid coil - should energize/de-energize on mode change",
+        "Check for pilot valve operation - should hear click when solenoid changes state",
+        "Measure temp difference across valve - if all 4 ports similar temp = internal leak",
+        "Check system pressures - equalized pressures may prevent valve from shifting"
+      ],
+      "rootCauses": [
+        "Internal bypass from worn valve seat",
+        "Solenoid coil burned out",
+        "Pilot valve stuck from debris",
+        "Insufficient pressure differential to shift valve (low charge)"
+      ],
+      "repairProcedure": "1. Try energizing/de-energizing solenoid manually. 2. If solenoid clicks but valve doesn't shift: check charge level, try tapping valve body. 3. If internal leak: valve must be replaced (brazed into system). 4. Recovery, replace, evacuate, recharge. Very labor-intensive repair.",
+      "estimatedTime": "4-8 hours",
+      "partsCost": "$200-$600"
+    }
+  ]
+}

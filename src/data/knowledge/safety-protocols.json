@@ -1,0 +1,62 @@
+{
+  "category": "safety-protocols",
+  "title": "HVAC Safety Protocols & Compliance",
+  "lastUpdated": "2026-03-14",
+  "protocols": [
+    {
+      "id": "sp-001",
+      "title": "High Voltage Safety",
+      "rules": [
+        "Always disconnect and lock out power before working on electrical components",
+        "Verify zero voltage with meter after disconnecting - don't trust the disconnect alone",
+        "Discharge all capacitors before touching - they hold lethal charge even after power off",
+        "Use insulated tools rated for the voltage you're working with",
+        "Never work alone on high-voltage systems - have someone nearby for emergencies",
+        "Wet conditions: do NOT work on electrical components - reschedule",
+        "Test your meter on a known live source before trusting a 'dead' reading"
+      ]
+    },
+    {
+      "id": "sp-002",
+      "title": "Refrigerant Safety",
+      "rules": [
+        "EPA Section 608 certification required to purchase and handle refrigerants",
+        "Never vent refrigerant to atmosphere - federal violation, $44,539 per day fine",
+        "Recover refrigerant into approved DOT cylinders only",
+        "Disposable cylinders must NOT be refilled - transport violation",
+        "R-32 and R-454B are A2L (mildly flammable) - no open flames, use ventilation",
+        "Refrigerant displaces oxygen - never work in enclosed spaces without ventilation",
+        "Liquid refrigerant contact causes frostbite - wear gloves and safety glasses",
+        "Never use oxygen or compressed air to pressure test - explosion hazard",
+        "Use dry nitrogen only for pressure testing (with appropriate regulator)"
+      ]
+    },
+    {
+      "id": "sp-003",
+      "title": "Rooftop/Ladder Safety",
+      "rules": [
+        "3-point contact rule on ladders at all times",
+        "Ladder angle: 4:1 ratio (1 foot out for every 4 feet up)",
+        "Secure ladder at top - tie off or have someone hold",
+        "Carry tools in belt or bucket - keep hands free for climbing",
+        "On flat roofs: watch for soft spots, skylights, and unmarked openings",
+        "Hot roofs in summer: wear appropriate footwear, stay hydrated",
+        "Wind above 25 mph: postpone rooftop work",
+        "Harness required at heights above 6 feet (OSHA standard)"
+      ]
+    },
+    {
+      "id": "sp-004",
+      "title": "Gas Line Safety",
+      "rules": [
+        "If you smell gas: evacuate area immediately, do NOT operate any electrical switches",
+        "Soap bubble test all gas connections after work",
+        "Gas line pressure test: 3 psig for 10 minutes minimum (manometer test)",
+        "Verify gas valve off before working on heat exchanger or burners",
+        "Check heat exchanger for cracks: visual + carbon monoxide test in supply air",
+        "CO level above 9 ppm in supply air = cracked heat exchanger = SHUT DOWN unit",
+        "Never bypass safety switches (rollout, high limit, pressure switch)"
+      ]
+    }
+  ]
+}

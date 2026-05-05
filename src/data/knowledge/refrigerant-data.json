@@ -1,0 +1,105 @@
+{
+  "category": "refrigerant-data",
+  "title": "Refrigerant Technical Data & Handling",
+  "lastUpdated": "2026-03-14",
+  "refrigerants": {
+    "R-410A": {
+      "name": "R-410A (Puron)",
+      "type": "HFC blend (50% R-32, 50% R-125)",
+      "classification": "A1 (non-flammable, non-toxic)",
+      "gwp": 2088,
+      "ozone": 0,
+      "status": "Being phased down under AIM Act. Available but decreasing production from 2025+.",
+      "operatingPressures": {
+        "suctionNormal": "118-125 psig at 95°F ambient",
+        "dischargeNormal": "375-415 psig at 95°F ambient",
+        "criticalPressure": "725 psig",
+        "maxWorkingPressure": "600 psig (high side)"
+      },
+      "oilType": "POE (Polyolester) - hygroscopic, absorbs moisture quickly. Keep sealed.",
+      "chargingMethod": "Must charge as liquid (blend - vapor charging changes composition).",
+      "serviceNotes": [
+        "Always charge as liquid from tank - invert tank or use liquid port",
+        "Do NOT top off charge without finding leak first",
+        "POE oil absorbs moisture rapidly - minimize system open time",
+        "Requires 500 micron vacuum minimum - lower is better",
+        "Higher pressures than R-22 - use 800 psig rated hoses and gauges"
+      ],
+      "replacements": ["R-32 (direct replacement in new equipment only)", "R-454B (Opteon XL41 - approved drop-in for some equipment)"]
+    },
+    "R-22": {
+      "name": "R-22 (HCFC-22, Freon)",
+      "type": "HCFC (Hydrochlorofluorocarbon)",
+      "classification": "A1 (non-flammable, non-toxic)",
+      "gwp": 1810,
+      "ozone": 0.055,
+      "status": "BANNED from production/import since Jan 1, 2020. Only reclaimed/recycled available. Price has stabilized but remains high.",
+      "operatingPressures": {
+        "suctionNormal": "68-75 psig at 95°F ambient",
+        "dischargeNormal": "225-265 psig at 95°F ambient"
+      },
+      "oilType": "Mineral oil (AB type)",
+      "chargingMethod": "Can charge as vapor or liquid.",
+      "serviceNotes": [
+        "NO new R-22 production - use reclaimed only",
+        "Never mix R-22 with R-410A or other refrigerants",
+        "If system needs major repair, recommend R-410A system replacement (better long-term)",
+        "Drop-in replacements available (R-407C, R-422D, MO99) but have performance trade-offs",
+        "If converting to drop-in: change filter drier, check TXV compatibility, may need oil change"
+      ],
+      "dropInReplacements": {
+        "R-407C": "Closest performance match. Requires POE oil change. TXV adjustment may be needed.",
+        "MO99 (R-438A)": "Can work with existing mineral oil in some cases. Check manufacturer approval.",
+        "R-422D": "Easy retrofit but lower efficiency. Works with mineral oil."
+      }
+    },
+    "R-32": {
+      "name": "R-32 (Difluoromethane)",
+      "type": "HFC (single component - not a blend)",
+      "classification": "A2L (mildly flammable)",
+      "gwp": 675,
+      "ozone": 0,
+      "status": "The future standard. Used in Daikin Fit and many new mini-splits. Replacing R-410A globally.",
+      "operatingPressures": {
+        "suctionNormal": "145-155 psig at 95°F ambient",
+        "dischargeNormal": "400-430 psig at 95°F ambient"
+      },
+      "oilType": "POE (Polyolester)",
+      "chargingMethod": "Single component - can charge as liquid or vapor.",
+      "serviceNotes": [
+        "A2L classification - mildly flammable. No open flames during service.",
+        "Requires R-32 rated recovery machine and gauges",
+        "Electronic leak detectors must be rated for A2L",
+        "Same pressure range as R-410A - familiar working pressures",
+        "Higher efficiency than R-410A - 10% better COP",
+        "Lower charge weight than R-410A for same capacity",
+        "Single component - no composition shift, can top off charge (unlike R-410A)"
+      ],
+      "safetyNotes": [
+        "Burning velocity: 6.7 cm/s (very slow - won't explode but can ignite)",
+        "Do not use in enclosed spaces without ventilation",
+        "No brazing with refrigerant in system - standard practice applies",
+        "A2L rated equipment has safety features: leak sensors, charge limits per room volume"
+      ]
+    },
+    "R-454B": {
+      "name": "R-454B (Opteon XL41)",
+      "type": "HFO blend (68.9% R-32, 31.1% R-1234yf)",
+      "classification": "A2L (mildly flammable)",
+      "gwp": 466,
+      "ozone": 0,
+      "status": "Approved as R-410A replacement. Carrier, Trane, Lennox developing R-454B equipment for 2025+ installations.",
+      "operatingPressures": {
+        "suctionNormal": "Similar to R-410A",
+        "dischargeNormal": "Similar to R-410A"
+      },
+      "serviceNotes": [
+        "Designed as near drop-in for R-410A equipment (NOT a retrofit for existing units)",
+        "New equipment factory-designed for R-454B",
+        "A2L safety requirements same as R-32",
+        "Must charge as liquid (blend)",
+        "Requires A2L rated tools and recovery equipment"
+      ]
+    }
+  }
+}

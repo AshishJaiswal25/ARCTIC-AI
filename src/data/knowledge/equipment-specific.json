@@ -1,0 +1,102 @@
+{
+  "category": "equipment-specific",
+  "title": "Equipment-Specific Knowledge",
+  "lastUpdated": "2026-03-14",
+  "equipment": {
+    "Split System A/C": {
+      "description": "Most common residential cooling system. Indoor evaporator + outdoor condensing unit connected by line set.",
+      "commonConfigurations": [
+        "1.5 to 5 ton capacity",
+        "R-410A or R-22 (older units)",
+        "Fixed orifice (piston) or TXV metering",
+        "PSC or ECM blower motor indoor",
+        "Single-stage or two-stage compressor"
+      ],
+      "topFailures": ["Bad capacitor (run cap)", "Low refrigerant charge", "Dirty condenser coil", "Dirty filter causing coil freeze", "Contactor failure"],
+      "seasonalIssues": {
+        "spring": "First startup after winter: check capacitors, contactor, refrigerant charge. Clean condenser coil. Cottonwood season clogs coils.",
+        "summer": "Peak load failures: capacitors fail in heat, compressors overheat, high head pressure from dirty condensers.",
+        "fall": "End of season: check for leaks before shutdown. Service reversing valve if heat pump.",
+        "winter": "Heat pump defrost issues. Frozen outdoor coil. Auxiliary heat not engaging."
+      },
+      "criticalMeasurements": {
+        "supplyAirTemp": "55-62°F typical",
+        "returnAirTemp": "72-78°F typical",
+        "deltaT": "16-22°F across coil",
+        "suctionLineTemp": "Should feel cold, slight condensation, NOT frosted",
+        "liquidLineTemp": "Should feel warm (90-110°F), NOT hot to touch"
+      }
+    },
+    "Heat Pump": {
+      "description": "Reversible system providing both heating and cooling. Uses reversing valve to switch between modes.",
+      "uniqueComponents": ["Reversing valve", "Defrost control board", "Defrost thermostat/sensor", "Auxiliary/emergency heat strips", "Outdoor temperature sensor", "Accumulator (suction line)"],
+      "commonConfigurations": [
+        "2-5 ton capacity",
+        "R-410A primary",
+        "TXV metering (most modern units)",
+        "Two metering devices (one for each mode) or bi-directional TXV",
+        "Defrost cycle: reverse cycle or demand defrost"
+      ],
+      "topFailures": ["Stuck reversing valve", "Defrost board failure", "Outdoor coil icing up", "Auxiliary heat not working", "Low charge in heat mode"],
+      "heatModeCharging": {
+        "notes": "Charging in heat mode is different - use manufacturer's heat mode charging chart",
+        "superheatTarget": "Measured at outdoor coil in heat mode: 5-10°F",
+        "subcoolingTarget": "Measured at indoor coil in heat mode: varies by manufacturer",
+        "caution": "Do NOT charge to standard cooling mode targets when in heat mode"
+      },
+      "defrostDiagnostics": {
+        "normalDefrost": "System should defrost every 30-90 minutes in cold weather. Defrost cycle: reversing valve switches to cool, outdoor fan stops, heat strips energize. Cycle lasts 2-10 minutes.",
+        "failedDefrost": "Outdoor coil fully iced over. Check defrost thermostat (should close at ~32°F), defrost board timer, outdoor coil sensor.",
+        "frequentDefrost": "Low charge, airflow restriction, or defrost control set too aggressively. Check charge and outdoor coil condition."
+      }
+    },
+    "Mini-Split": {
+      "description": "Ductless system with wall-mounted indoor head(s) connected to outdoor unit. Inverter-driven variable speed compressor.",
+      "uniqueComponents": ["Inverter compressor", "Electronic expansion valve (EEV)", "Wireless remote control", "Drain pump (some models)", "Indoor PCB with error LED/display"],
+      "commonConfigurations": [
+        "9K-36K BTU single zone",
+        "Multi-zone: 2-5 indoor heads on one outdoor",
+        "R-410A or R-32",
+        "All use EEV metering",
+        "DC inverter compressor (variable speed)"
+      ],
+      "topFailures": ["Communication error (indoor/outdoor)", "Inverter board failure", "EEV stepper motor", "Drain pump failure", "Indoor PCB fault"],
+      "diagnosticDifferences": [
+        "Error codes displayed on indoor unit or remote - always check first",
+        "Inverter compressors ramp up/down - amp draw varies, can't compare to fixed RLA",
+        "EEV controlled by PCB - no manual adjustment possible",
+        "Line set lengths critical - check manufacturer max distance and height differential",
+        "Communication wiring: polarity-sensitive on most brands. Wrong polarity = comm error.",
+        "Most mini-splits need specific vacuum and charge procedures - follow OEM manual"
+      ],
+      "chargingNotes": "Most mini-splits come pre-charged for 25ft line set. Add refrigerant per manufacturer's spec for additional line set length. ALWAYS weigh in charge - never charge by pressures alone on inverter systems."
+    },
+    "RTU (Rooftop)": {
+      "description": "Self-contained package unit installed on commercial building roof. Contains all components in one cabinet.",
+      "uniqueComponents": ["Economizer (outdoor air damper)", "Smoke detector", "Exhaust fan", "VFD on supply fan (some)", "Multiple compressors (staged)", "Roof curb and vibration isolators"],
+      "commonConfigurations": [
+        "3-25 ton commercial",
+        "R-410A or R-407C",
+        "Multiple compressor circuits",
+        "Economizer with enthalpy or dry-bulb control",
+        "BAS/DDC integration"
+      ],
+      "topFailures": ["Economizer damper failure (stuck open = excess humidity)", "Belt drive blower issues", "Multiple compressor staging problems", "Roof leak at curb penetration", "Enthalpy sensor failure"],
+      "economizer": {
+        "purpose": "Uses outdoor air for free cooling when outdoor conditions allow",
+        "diagnostics": "Check damper actuator, enthalpy sensor, minimum position setting. Stuck open economizer = high humidity complaints. Stuck closed = no free cooling benefit.",
+        "settings": "Changeover typically at 65-70°F dry bulb or 28 BTU/lb enthalpy"
+      }
+    },
+    "Package Unit": {
+      "description": "All components in single outdoor cabinet. No indoor unit - supply and return ducts connect directly.",
+      "topFailures": ["Same as split system PLUS: duct connection leaks, cabinet water intrusion, pest/rodent damage to wiring"],
+      "specialNotes": [
+        "All electrical connections exposed to weather - check for corrosion",
+        "Supply air ductwork directly exposed - check for condensation and mold",
+        "Filter access often on exterior - customers forget to change",
+        "Gas heat section (if equipped) subject to wind interference - check flame pattern"
+      ]
+    }
+  }
+}

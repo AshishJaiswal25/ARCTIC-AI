@@ -1,0 +1,141 @@
+{
+  "category": "diagnostic-procedures",
+  "title": "HVAC Diagnostic Procedures & Measurement Standards",
+  "lastUpdated": "2026-03-14",
+  "procedures": [
+    {
+      "id": "dp-001",
+      "title": "Superheat Method (Fixed Orifice / Piston Systems)",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit"],
+      "purpose": "Verify refrigerant charge on systems with fixed metering device",
+      "steps": [
+        "System must run at least 15 minutes before taking readings",
+        "Outdoor ambient must be above 65°F for accurate readings",
+        "Measure suction pressure at service valve",
+        "Convert suction pressure to saturation temperature using PT chart",
+        "Measure actual suction line temperature 6 inches from compressor",
+        "Superheat = Actual suction line temp − Suction saturation temp",
+        "Use manufacturer's charging chart if available (based on indoor wet bulb + outdoor dry bulb)",
+        "Generic targets: 10-18°F superheat (varies with outdoor temp)"
+      ],
+      "targetRanges": {
+        "R-410A": { "target": "10-18°F", "lowCharge": "> 20°F", "overcharge": "< 5°F" },
+        "R-22": { "target": "10-18°F", "lowCharge": "> 20°F", "overcharge": "< 5°F" }
+      },
+      "notes": "This method ONLY works for fixed orifice/piston systems. For TXV systems, use the subcooling method."
+    },
+    {
+      "id": "dp-002",
+      "title": "Subcooling Method (TXV Systems)",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "purpose": "Verify refrigerant charge on systems with TXV metering",
+      "steps": [
+        "System must run at least 15 minutes",
+        "Measure discharge (high side) pressure",
+        "Convert discharge pressure to condensing temperature using PT chart",
+        "Measure actual liquid line temperature at condenser outlet (before filter drier)",
+        "Subcooling = Condensing saturation temp − Actual liquid line temp",
+        "Compare to manufacturer spec (typically on nameplate or service manual)"
+      ],
+      "targetRanges": {
+        "R-410A": { "target": "10-15°F", "lowCharge": "< 5°F", "overcharge": "> 20°F" },
+        "R-22": { "target": "10-15°F", "lowCharge": "< 5°F", "overcharge": "> 20°F" }
+      },
+      "notes": "TXV maintains constant superheat, so subcooling is the only reliable charge indicator for TXV systems."
+    },
+    {
+      "id": "dp-003",
+      "title": "Compressor Electrical Testing",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "purpose": "Determine if compressor windings are healthy",
+      "steps": [
+        "Disconnect all power and lock out",
+        "Discharge capacitor",
+        "Remove wires from compressor terminals (C, S, R)",
+        "Set ohmmeter to lowest range",
+        "Measure C to R: should be lowest resistance (run winding)",
+        "Measure C to S: should be higher resistance (start winding)",
+        "Measure R to S: should equal C-R + C-S (within 3%)",
+        "Measure each terminal to compressor shell/ground: must be infinity (OL)",
+        "Any reading to ground = grounded compressor = replace",
+        "If all readings are OL (open): open winding = replace",
+        "Single-phase scroll compressors: also check for reverse rotation"
+      ],
+      "normalValues": {
+        "smallResidential": "C-R: 1-5Ω, C-S: 3-15Ω",
+        "largeResidential": "C-R: 0.5-3Ω, C-S: 2-10Ω",
+        "toGround": "Must be infinity (OL/megohms)"
+      },
+      "notes": "ALWAYS test capacitor and voltage BEFORE condemning compressor. A bad capacitor is the #1 misdiagnosis for a bad compressor."
+    },
+    {
+      "id": "dp-004",
+      "title": "Airflow Verification",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "purpose": "Verify proper indoor airflow for correct system operation",
+      "steps": [
+        "Standard airflow: 400 CFM per ton of cooling (±10%)",
+        "Measure temperature split: return air temp minus supply air temp",
+        "Normal cooling delta-T: 16-22°F across evaporator",
+        "High delta-T (>24°F) = low airflow (check filter, blower, ducts)",
+        "Low delta-T (<14°F) = too much airflow or low charge",
+        "Check static pressure: total external should not exceed equipment rating",
+        "Typical: 0.5\" WC total external static pressure for residential",
+        "Filter pressure drop should be < 0.3\" WC for 1\" filter",
+        "If possible, measure airflow at supply registers and sum"
+      ],
+      "troubleshooting": {
+        "highStaticPressure": ["Dirty filter", "Undersized ductwork", "Collapsed flex duct", "Too many closed registers", "Dirty evap coil"],
+        "lowStaticPressure": ["Duct leaks", "Return air leak at air handler", "Missing filter (air bypassing)"]
+      }
+    },
+    {
+      "id": "dp-005",
+      "title": "Electrical Supply Verification",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "purpose": "Verify proper voltage supply to equipment",
+      "steps": [
+        "Check voltage at disconnect: L1-L2 should be within ±10% of nameplate",
+        "240V system: acceptable range 216V-264V",
+        "208V system: acceptable range 187V-229V",
+        "Check voltage under load (compressor running) - should not drop more than 3%",
+        "Check leg balance: L1-to-neutral vs L2-to-neutral should be within 2V",
+        "For 3-phase: measure all three legs, imbalance >2% can damage compressor",
+        "Check amp draw on each leg - should be balanced",
+        "Verify wire gauge adequate for amp draw and distance from panel"
+      ],
+      "commonIssues": [
+        "Loose wire connections causing voltage drop under load",
+        "Undersized wire on long runs",
+        "Bad breaker (voltage drops when loaded)",
+        "Single-phasing on 3-phase equipment (loss of one leg)"
+      ]
+    },
+    {
+      "id": "dp-006",
+      "title": "Refrigerant Leak Detection",
+      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "purpose": "Locate refrigerant leaks systematically",
+      "steps": [
+        "Check service valve caps and Schrader cores first (most common leak points)",
+        "Use electronic leak detector - sweep all brazed joints slowly",
+        "Check flare connections at indoor coil and line set",
+        "Inspect evap coil - look for oil stains indicating leak",
+        "Check condenser coil - especially bottom rows",
+        "Look for oil stains at any connection point",
+        "If leak not found: nitrogen pressure test to 150 psig, monitor for 24 hours",
+        "Stubborn leaks: add UV dye, run system, return with UV light",
+        "Check condensate drain pan - refrigerant oil can accumulate there from evap leak"
+      ],
+      "commonLeakLocations": [
+        "Schrader valve cores (vibration loosens over time) - 25%",
+        "Brazed joints at indoor coil - 25%",
+        "Service valve packing/caps - 15%",
+        "Condenser coil (corrosion or damage) - 15%",
+        "Flare connections at line set - 10%",
+        "Factory defect in coil - 5%",
+        "Line set rub-through - 5%"
+      ]
+    }
+  ]
+}
