@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
+import { API_BASE, authHeaders } from '../api.js';
 
-// Numeric field patterns for HVAC readings - extracts values from speech
+// ── HVAC readings field patterns ───────────────────────────────────────────────
 const FIELD_PATTERNS = [
   { field: 'suction',      patterns: ['suction pressure', 'suction', 'low side', 'low pressure'] },
   { field: 'discharge',    patterns: ['discharge pressure', 'discharge', 'high side', 'high pressure'] },
@@ -15,7 +16,6 @@ const FIELD_PATTERNS = [
   { field: 'ambientTemp',  patterns: ['ambient', 'outdoor temp', 'outside temp'] },
 ];
 
-// Extracts number from text like "suction pressure 118" or "amps twelve"
 const WORD_NUMBERS = {
   zero:0, one:1, two:2, three:3, four:4, five:5, six:6, seven:7, eight:8, nine:9,
   ten:10, eleven:11, twelve:12, thirteen:13, fourteen:14, fifteen:15,
@@ -27,7 +27,6 @@ const WORD_NUMBERS = {
 function wordToNum(text) {
   let num = parseFloat(text.replace(/,/g, ''));
   if (!isNaN(num)) return num;
-
   let total = 0, current = 0;
   for (const word of text.toLowerCase().split(' ')) {
     const v = WORD_NUMBERS[word];
@@ -44,113 +43,149 @@ function wordToNum(text) {
 function parseReadingsFromTranscript(transcript) {
   const lower = transcript.toLowerCase();
   const updates = {};
-
   for (const { field, patterns } of FIELD_PATTERNS) {
     for (const pattern of patterns) {
-      const regex = new RegExp(`${pattern}\\s+([\\w\\s\\.]+?)(?:\\s+(?:${FIELD_PATTERNS.map(f => f.patterns[0]).join('|')})|$)`, 'i');
+      const regex = new RegExp(
+        `${pattern}\\s+([\\w\\s\\.]+?)(?:\\s+(?:${FIELD_PATTERNS.map(f => f.patterns[0]).join('|')})|$)`,
+        'i'
+      );
       const match = lower.match(regex);
       if (match) {
         const num = wordToNum(match[1].trim());
-        if (num !== null) {
-          updates[field] = String(num);
-          break;
-        }
+        if (num !== null) { updates[field] = String(num); break; }
       }
     }
   }
-
   return updates;
 }
 
+// ── Transcribe audio blob via Distil-Whisper backend ──────────────────────────
+async function transcribeAudio(blob) {
+  const formData = new FormData();
+  formData.append('audio', blob, 'recording.webm');
+
+  const response = await fetch(`${API_BASE}/api/transcribe`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err?.error || 'Transcription failed');
+  }
+
+  const data = await response.json();
+  return data.text || '';
+}
+
+// ── Main hook ─────────────────────────────────────────────────────────────────
 export function useVoiceInput() {
   const [isListening, setIsListening] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [error, setError] = useState('');
-  const recognitionRef = useRef(null);
+  const mediaRecorderRef = useRef(null);
+  const chunksRef = useRef([]);
+  const streamRef = useRef(null);
 
   const isSupported = typeof window !== 'undefined' &&
-    ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+    typeof MediaRecorder !== 'undefined' &&
+    !!navigator.mediaDevices?.getUserMedia;
 
-  // Listen for free text (chat input)
-  const startListening = useCallback((onResult) => {
-    if (!isSupported) {
-      setError('Voice input not supported in this browser. Use Chrome or Edge.');
-      return;
+  const stopStream = () => {
+    streamRef.current?.getTracks().forEach(t => t.stop());
+    streamRef.current = null;
+  };
+
+  // Free-text mode — used in chat
+  const startListening = useCallback(async (onResult) => {
+    setError('');
+    setTranscript('');
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream;
+
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      chunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        stopStream();
+        setIsListening(false);
+        setIsTranscribing(true);
+        try {
+          const blob = new Blob(chunksRef.current, { type: 'audio/webm' });
+          const text = await transcribeAudio(blob);
+          setTranscript(text);
+          onResult?.(text);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setIsTranscribing(false);
+        }
+      };
+
+      mediaRecorder.start();
+      setIsListening(true);
+    } catch (err) {
+      setError('Microphone access denied: ' + err.message);
     }
+  }, []);
 
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognitionRef.current = recognition;
+  // Readings dictation mode — parses transcript into readings fields
+  const startReadingsDictation = useCallback(async (onReadingsUpdate) => {
+    setError('');
+    setTranscript('');
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream;
 
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = 'en-US';
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      chunksRef.current = [];
 
-    recognition.onstart = () => { setIsListening(true); setError(''); setTranscript(''); };
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
 
-    recognition.onresult = (event) => {
-      const text = Array.from(event.results)
-        .map(r => r[0].transcript)
-        .join('');
-      setTranscript(text);
-      if (event.results[event.results.length - 1].isFinal) {
-        onResult?.(text);
-      }
-    };
+      mediaRecorder.onstop = async () => {
+        stopStream();
+        setIsListening(false);
+        setIsTranscribing(true);
+        try {
+          const blob = new Blob(chunksRef.current, { type: 'audio/webm' });
+          const text = await transcribeAudio(blob);
+          setTranscript(text);
+          const updates = parseReadingsFromTranscript(text);
+          if (Object.keys(updates).length > 0) onReadingsUpdate?.(updates);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setIsTranscribing(false);
+        }
+      };
 
-    recognition.onerror = (event) => {
-      setError(`Voice error: ${event.error}`);
-      setIsListening(false);
-    };
-
-    recognition.onend = () => { setIsListening(false); };
-
-    recognition.start();
-  }, [isSupported]);
-
-  // Listen for readings dictation - parses values into readings object
-  const startReadingsDictation = useCallback((onReadingsUpdate) => {
-    if (!isSupported) {
-      setError('Voice input not supported in this browser.');
-      return;
+      mediaRecorder.start();
+      setIsListening(true);
+    } catch (err) {
+      setError('Microphone access denied: ' + err.message);
     }
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognitionRef.current = recognition;
-
-    recognition.continuous = true;
-    recognition.interimResults = false;
-    recognition.lang = 'en-US';
-
-    recognition.onstart = () => { setIsListening(true); setError(''); };
-
-    recognition.onresult = (event) => {
-      const text = event.results[event.results.length - 1][0].transcript;
-      setTranscript(prev => prev + ' ' + text);
-      const updates = parseReadingsFromTranscript(text);
-      if (Object.keys(updates).length > 0) {
-        onReadingsUpdate?.(updates);
-      }
-    };
-
-    recognition.onerror = (event) => {
-      if (event.error !== 'no-speech') setError(`Voice error: ${event.error}`);
-      setIsListening(false);
-    };
-
-    recognition.onend = () => { setIsListening(false); };
-
-    recognition.start();
-  }, [isSupported]);
+  }, []);
 
   const stopListening = useCallback(() => {
-    recognitionRef.current?.stop();
-    setIsListening(false);
+    if (mediaRecorderRef.current?.state === 'recording') {
+      mediaRecorderRef.current.stop();
+    }
   }, []);
 
   return {
     isListening,
+    isTranscribing,
     transcript,
     error,
     isSupported,

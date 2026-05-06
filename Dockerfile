@@ -14,16 +14,27 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Install curl for health checks
 RUN apk add --no-cache curl
 
-# Copy only production dependencies
+# Production dependencies
 COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev
 
-# Copy built frontend + server
+# Built frontend
 COPY --from=builder /app/dist ./dist
+
+# Server entry + server-side modules
 COPY server.js .
+COPY lib/ ./lib/
+
+# Source files needed by lib/knowledge-rag-server.js at runtime
+COPY src/constants.js ./src/constants.js
+COPY src/data/fault-codes.js ./src/data/fault-codes.js
+COPY src/data/knowledge/ ./src/data/knowledge/
+
+# Pre-download embedding model at build time (avoids cold-start delay)
+COPY scripts/preload-model.js ./scripts/preload-model.js
+RUN node scripts/preload-model.js
 
 EXPOSE 3001
 

@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync } from 'fs';
 import dotenv from 'dotenv';
+import { buildSystemPrompt } from './lib/knowledge-rag-server.js';
 
 dotenv.config();
 
@@ -517,12 +518,28 @@ app.get('/api/feedback', requireAuth, async (req, res) => {
 
 // ── Claude AI Proxy (keeps API key server-side) ────────────────────────────────
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY || process.env.VITE_ANTHROPIC_API_KEY;
+const HF_KEY = process.env.HUGGINGFACE_API_KEY;
 
 app.post('/api/claude', requireAuth, async (req, res) => {
   try {
     if (!ANTHROPIC_KEY) return res.status(500).json({ error: 'Anthropic API key not configured on server' });
 
-    const { messages, systemPrompt, isJson, maxTokens } = req.body;
+    const { messages, intake, isJson, maxTokens } = req.body;
+
+    // Build system prompt server-side with semantic RAG (Pinecone + nomic) or keyword fallback
+    let feedbackEntries = [];
+    try {
+      const list = await s3.send(new ListObjectsV2Command({ Bucket: BUCKET, Prefix: 'feedback/', Delimiter: '/' }));
+      const keys = (list.Contents || []).map(o => o.Key).filter(k => k.endsWith('.json'));
+      for (const key of keys.slice(0, 20)) {
+        try {
+          const r = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: key }));
+          feedbackEntries.push(JSON.parse(await r.Body.transformToString()));
+        } catch { /* skip */ }
+      }
+    } catch { /* feedback is optional */ }
+
+    const systemPrompt = await buildSystemPrompt(intake || {}, feedbackEntries);
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -559,6 +576,37 @@ app.post('/api/claude', requireAuth, async (req, res) => {
     res.json({ result: text, type: 'text' });
   } catch (error) {
     console.error('Claude proxy error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ── Distil-Whisper transcription ───────────────────────────────────────────────
+app.post('/api/transcribe', requireAuth, upload.single('audio'), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: 'No audio file provided' });
+    if (!HF_KEY) return res.status(500).json({ error: 'HuggingFace API key not configured' });
+
+    const response = await fetch(
+      'https://api-inference.huggingface.co/models/distil-whisper/distil-large-v3',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${HF_KEY}`,
+          'Content-Type': req.file.mimetype || 'audio/webm',
+        },
+        body: req.file.buffer,
+      }
+    );
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      return res.status(response.status).json({ error: err?.error || 'Transcription failed' });
+    }
+
+    const data = await response.json();
+    res.json({ text: data.text?.trim() || '' });
+  } catch (error) {
+    console.error('Transcribe error:', error);
     res.status(500).json({ error: error.message });
   }
 });

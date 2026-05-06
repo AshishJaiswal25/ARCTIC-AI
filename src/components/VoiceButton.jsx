@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function VoiceButton({ isListening, onStart, onStop, isSupported, label = 'Voice', size = 'normal' }) {
+export default function VoiceButton({ isListening, isTranscribing, onStart, onStop, isSupported, label = 'Voice', size = 'normal' }) {
   useEffect(() => {
     return () => { if (isListening) onStop?.(); };
   }, []);
@@ -12,17 +12,19 @@ export default function VoiceButton({ isListening, onStart, onStop, isSupported,
   return (
     <button
       onClick={isListening ? onStop : onStart}
-      title={isListening ? 'Stop recording' : `${label} input`}
+      disabled={isTranscribing}
+      title={isListening ? 'Stop recording' : isTranscribing ? 'Transcribing…' : `${label} input`}
       style={{
         display: 'flex', alignItems: 'center', gap: small ? 4 : 6,
         padding: small ? '6px 10px' : '8px 14px',
-        background: isListening ? 'var(--error-bg)' : 'var(--bg-tertiary)',
-        border: `1.5px solid ${isListening ? 'var(--error-border)' : 'var(--border-primary)'}`,
-        borderRadius: 8, cursor: 'pointer',
+        background: isListening ? 'var(--error-bg)' : isTranscribing ? 'var(--warning-bg)' : 'var(--bg-tertiary)',
+        border: `1.5px solid ${isListening ? 'var(--error-border)' : isTranscribing ? 'var(--warning-border)' : 'var(--border-primary)'}`,
+        borderRadius: 8, cursor: isTranscribing ? 'default' : 'pointer',
         fontSize: small ? 12 : 13, fontWeight: 600,
-        color: isListening ? 'var(--error)' : 'var(--text-secondary)',
+        color: isListening ? 'var(--error)' : isTranscribing ? 'var(--warning)' : 'var(--text-secondary)',
         transition: 'all 0.15s',
         whiteSpace: 'nowrap',
+        opacity: isTranscribing ? 0.8 : 1,
       }}
     >
       {isListening ? (
@@ -33,6 +35,11 @@ export default function VoiceButton({ isListening, onStart, onStop, isSupported,
             animation: 'pulse 1s infinite',
           }} />
           Stop
+        </>
+      ) : isTranscribing ? (
+        <>
+          <span style={{ animation: 'pulse 1s infinite' }}>⏳</span>
+          Transcribing…
         </>
       ) : (
         <>

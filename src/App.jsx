@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { callClaude, buildSystemPrompt, buildSystemPromptWithFeedback } from './api.js';
+import { callClaude } from './api.js';
 import { EMPTY_READINGS } from './constants.js';
 import { useOnlineStatus } from './hooks/useOnlineStatus.js';
 import { useAuth } from './hooks/useAuth.jsx';
 import { useTheme } from './hooks/useTheme.jsx';
-import { isBackendAvailable, getFeedbackEntries } from './db/s3-api.js';
 import LandingPage from './components/LandingPage.jsx';
 import AuthScreen from './components/AuthScreen.jsx';
 import PhaseIndicator from './components/PhaseIndicator.jsx';
@@ -85,28 +84,14 @@ ${photoSummary ? `PHOTO ANALYSIS:\n${photoSummary}` : ''}`.trim();
     try {
       const intake = buildIntakeText();
 
-      // Build intake object for RAG knowledge retrieval
       const intakeData = {
         equipType, brand, refrigerant, symptoms,
         faultCode, techNotes, readings,
       };
 
-      // Try to load past feedback for learning context
-      let feedbackEntries = [];
-      try {
-        if (await isBackendAvailable()) {
-          feedbackEntries = await getFeedbackEntries();
-        }
-      } catch { /* feedback loading is optional */ }
-
-      // Build RAG-enhanced system prompt
-      const systemPrompt = feedbackEntries.length > 0
-        ? buildSystemPromptWithFeedback(brand, intakeData, feedbackEntries)
-        : buildSystemPrompt(brand, intakeData);
-
       const result = await callClaude(
         [{ role: 'user', content: `Diagnose this HVAC system. Return ONLY valid JSON.\n${intake}` }],
-        systemPrompt,
+        intakeData,
         true
       );
       if (!result) throw new Error('Empty response');
@@ -132,8 +117,7 @@ ${photoSummary ? `PHOTO ANALYSIS:\n${photoSummary}` : ''}`.trim();
         equipType, brand, refrigerant, symptoms,
         faultCode, techNotes, readings,
       };
-      const systemPrompt = buildSystemPrompt(brand, intakeData);
-      const reply = await callClaude(updated, systemPrompt);
+      const reply = await callClaude(updated, intakeData);
       setChatHistory([...updated, { role: 'assistant', content: reply }]);
     } catch (e) {
       setError(e.message);
