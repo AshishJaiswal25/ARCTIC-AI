@@ -1,5 +1,5 @@
 # ── Stage 1: Build frontend ─────────────────────────────────────────────────────
-FROM node:20-alpine AS builder
+FROM node:20-slim AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -9,12 +9,12 @@ COPY . .
 RUN npm run build
 
 # ── Stage 2: Production image ──────────────────────────────────────────────────
-FROM node:20-alpine AS production
+FROM node:20-slim AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-RUN apk add --no-cache curl
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
 
 # Production dependencies
 COPY package.json package-lock.json* ./
