@@ -1,7 +1,7 @@
 {
   "category": "refrigerant-data",
   "title": "Refrigerant Technical Data & Handling",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "refrigerants": {
     "R-410A": {
       "name": "R-410A (Puron)",
@@ -25,7 +25,10 @@
         "Requires 500 micron vacuum minimum - lower is better",
         "Higher pressures than R-22 - use 800 psig rated hoses and gauges"
       ],
-      "replacements": ["R-32 (direct replacement in new equipment only)", "R-454B (Opteon XL41 - approved drop-in for some equipment)"]
+      "replacements": [
+        "R-32 (direct replacement in new equipment only)",
+        "R-454B (Opteon XL41 - approved drop-in for some equipment)"
+      ]
     },
     "R-22": {
       "name": "R-22 (HCFC-22, Freon)",
@@ -99,6 +102,180 @@
         "A2L safety requirements same as R-32",
         "Must charge as liquid (blend)",
         "Requires A2L rated tools and recovery equipment"
+      ]
+    },
+    "R-407C": {
+      "name": "R-407C",
+      "type": "HFC zeotropic blend (23% R-32, 25% R-125, 52% R-134a)",
+      "classification": "A1 (non-flammable, non-toxic)",
+      "gwp": 1774,
+      "ozone": 0,
+      "status": "Used as primary R-22 retrofit refrigerant and in some commercial RTUs. Being phased down with other high-GWP HFCs under AIM Act.",
+      "operatingPressures": {
+        "suctionNormal": "70-80 psig at 95°F ambient (similar to R-22)",
+        "dischargeNormal": "260-310 psig at 95°F ambient",
+        "temperatureGlide": "10.5°F glide between bubble point and dew point — significant for charging and diagnostics"
+      },
+      "oilType": "POE (Polyolester) required — mineral oil incompatible with HFC blend",
+      "chargingMethod": "MUST charge as liquid only. Vapor charging causes fractionation — composition shifts, performance degrades permanently.",
+      "serviceNotes": [
+        "Zeotropic blend with significant 10.5°F temperature glide — use bubble point for subcooling, dew point for superheat",
+        "Use PT chart specific to R-407C — has separate liquid and vapor saturation columns",
+        "After any leak, recover entire charge and recharge from new cylinder — cannot top off (composition has shifted)",
+        "POE oil required — if converting from R-22 system, flush mineral oil 3 times minimum or replace oil",
+        "Replace filter drier with POE-compatible drier when converting",
+        "TXV may need superheat adjustment after R-22 to R-407C retrofit",
+        "Higher discharge temps than R-22 — check compressor amp draw and discharge line temp",
+        "Handles like R-22 in terms of pressures, but composition and oil requirements are completely different"
+      ]
+    },
+    "R-134a": {
+      "name": "R-134a (Tetrafluoroethane)",
+      "type": "HFC (single component)",
+      "classification": "A1 (non-flammable, non-toxic)",
+      "gwp": 1430,
+      "ozone": 0,
+      "status": "Phased out of new automotive A/C in US (replaced by R-1234yf). Still used in commercial refrigeration, chillers, and some heat pump water heaters. Being phased down under AIM Act.",
+      "operatingPressures": {
+        "suctionNormal": "20-30 psig at 95°F ambient (much lower than R-410A)",
+        "dischargeNormal": "150-175 psig at 95°F ambient",
+        "criticalPressure": "589 psig"
+      },
+      "oilType": "POE (Polyolester) for stationary applications. PAG (Polyalkylene Glycol) for automotive A/C — NOT interchangeable with POE.",
+      "chargingMethod": "Single component — can charge as liquid or vapor. Most often charged by weight on commercial equipment.",
+      "serviceNotes": [
+        "Common in TXV applications: chillers, walk-in coolers, transport refrigeration, vending machines, beverage coolers, dehumidifiers",
+        "Low pressures — do NOT use 800 psig R-410A gauges (poor resolution at low pressure). Use R-22/R-134a range gauges.",
+        "POE oil hygroscopic — same moisture precautions as R-410A",
+        "Vacuum to 500 microns minimum",
+        "Excellent at moderate-temp applications (35-50°F evaporator), poor at low-temp below 0°F",
+        "When working on automotive, use PAG-compatible tools — NEVER mix PAG and POE in same system",
+        "Being replaced by R-1234yf in new automotive and R-513A in some stationary applications"
+      ],
+      "applications": [
+        "Centrifugal and screw chillers (commercial)",
+        "Refrigerated transport (older trucks/trailers)",
+        "Medium-temp commercial refrigeration",
+        "Heat pump water heaters",
+        "Dehumidifiers and ice machines",
+        "Older automotive A/C (1994 through early 2020s)"
+      ]
+    },
+    "R-448A": {
+      "name": "R-448A (Solstice N40)",
+      "type": "HFO/HFC blend (26% R-32, 26% R-125, 21% R-1234yf, 20% R-134a, 7% R-1234ze)",
+      "classification": "A1 (non-flammable, non-toxic)",
+      "gwp": 1387,
+      "ozone": 0,
+      "status": "Primary replacement for R-404A in commercial refrigeration. Widely used in supermarket and food service applications. EPA SNAP-approved for retrofit use.",
+      "operatingPressures": {
+        "suctionNormal": "Similar to R-404A: 25-40 psig low-temp, 50-75 psig medium-temp",
+        "dischargeNormal": "200-275 psig at 95°F ambient",
+        "temperatureGlide": "9°F temperature glide — zeotropic blend"
+      },
+      "oilType": "POE (Polyolester) — same as R-404A and R-410A",
+      "chargingMethod": "MUST charge as liquid (zeotropic blend). Recover entire charge after leak repair — cannot top off without composition shift.",
+      "serviceNotes": [
+        "Drop-in replacement for R-404A in existing equipment with minor modifications",
+        "Lower GWP than R-404A (3922) by approximately 65%",
+        "Slightly higher discharge temperatures than R-404A — monitor compressor temp on retrofits",
+        "Use bubble point for subcooling calculations, dew point for superheat (glide refrigerant)",
+        "Replace filter drier when retrofitting R-404A systems",
+        "TXV adjustment usually needed — may need different orifice on systems with fixed metering devices",
+        "A1 classification — no flammability concerns, standard service practices apply"
+      ],
+      "applications": [
+        "Supermarket refrigeration (medium and low temp)",
+        "Walk-in coolers and freezers",
+        "Refrigerated display cases",
+        "Cold storage warehouses",
+        "Ice machines and rink refrigeration"
+      ]
+    },
+    "R-290": {
+      "name": "R-290 (Propane)",
+      "type": "HC (Hydrocarbon) — single component",
+      "classification": "A3 (highly flammable, low toxicity)",
+      "gwp": 3,
+      "ozone": 0,
+      "status": "Approved by EPA SNAP for limited commercial refrigeration and small self-contained appliances. Charge limited to 150g under current US residential rules; some commercial categories allow up to 500g. BANNED in central A/C and split systems in US.",
+      "operatingPressures": {
+        "suctionNormal": "30-50 psig at typical evaporator temps",
+        "dischargeNormal": "150-220 psig at 95°F ambient",
+        "criticalPressure": "618 psig"
+      },
+      "oilType": "Mineral oil or POE (manufacturer specific) — propane is miscible with most refrigeration oils",
+      "chargingMethod": "Single component — charge by weight only on factory-sealed systems. Most R-290 equipment is factory-charged and not field-serviceable for refrigerant addition.",
+      "serviceNotes": [
+        "EXTREMELY FLAMMABLE — lower flammability limit 2.1%, ignition energy only 0.25 mJ (any spark can ignite)",
+        "Charge limit currently 150g residential / 500g some commercial categories under US EPA",
+        "ONLY work on R-290 equipment with manufacturer-specific training and intrinsically safe tools",
+        "Recovery requires explosion-proof recovery machine — standard machines are dangerous and illegal for A3 refrigerants",
+        "Leak detector must be rated for hydrocarbon gases — most A2L detectors are NOT rated for A3",
+        "No open flames, smoking, or ignition sources within 30 ft of service work",
+        "Ventilation mandatory — propane is heavier than air, accumulates at floor level in enclosed spaces",
+        "Highly efficient — 30% lower charge than HFCs for same cooling capacity",
+        "GWP only 3 — one of lowest of any refrigerant, environmentally excellent"
+      ],
+      "bannedFrom": [
+        "Central air conditioning (residential and commercial split systems)",
+        "Any system over 500g charge in US",
+        "Field-charged split systems (must be factory sealed with approved charge weight)"
+      ]
+    },
+    "R-1234yf": {
+      "name": "R-1234yf (HFO-1234yf, Opteon YF)",
+      "type": "HFO (Hydrofluoroolefin) — single component",
+      "classification": "A2L (mildly flammable)",
+      "gwp": 4,
+      "ozone": 0,
+      "status": "Standard refrigerant for new automotive A/C since 2017 (US and EU mandate). Growing in stationary HVAC as a blend component. Atmospheric lifetime only 11 days — essentially no global warming contribution.",
+      "operatingPressures": {
+        "suctionNormal": "20-30 psig at 95°F ambient (similar to R-134a)",
+        "dischargeNormal": "140-170 psig at 95°F ambient",
+        "criticalPressure": "489 psig"
+      },
+      "oilType": "POE or PAG (automotive-specific PAG synthetic for OEM vehicle systems)",
+      "chargingMethod": "Single component — can charge as liquid or vapor. Automotive systems use dedicated A/C service machines that recover, evacuate, and weigh in charge automatically.",
+      "serviceNotes": [
+        "Very low GWP (4) — one of most environmentally friendly synthetic refrigerants available",
+        "A2L mildly flammable — same handling precautions as R-32: no open flames, A2L-rated tools required",
+        "Burning velocity extremely slow (1.5 cm/s) — very difficult to ignite compared to propane",
+        "More expensive than R-134a (currently 5-10x cost per pound)",
+        "Pressures and operating characteristics very close to R-134a — similar gauge ranges work",
+        "Found as major component in HVAC blends: R-454B (31% R-1234yf), R-448A (21% R-1234yf)",
+        "Used in some commercial centrifugal chillers and stationary equipment"
+      ],
+      "applications": [
+        "Automotive A/C (2017+ vehicles in US and EU)",
+        "Stationary commercial chillers (low-pressure centrifugal)",
+        "Component in HVAC blends (R-454B, R-448A, R-513A)",
+        "Heat pumps in European market"
+      ]
+    },
+    "R-466A": {
+      "name": "R-466A",
+      "type": "HFC/HFO blend with iodotrifluoromethane (49% R-32, 11.5% R-125, 39.5% CF3I)",
+      "classification": "A1 (non-flammable, non-toxic) — primary advantage over R-32 and R-454B",
+      "gwp": 733,
+      "ozone": 0,
+      "status": "Under evaluation as non-flammable R-410A replacement. Being tested by Chemours and equipment manufacturers. Not yet widely deployed — regulatory approval and stability testing ongoing 2025-2026.",
+      "operatingPressures": {
+        "suctionNormal": "Similar to R-410A: 115-125 psig at 95°F ambient",
+        "dischargeNormal": "Similar to R-410A: 370-410 psig at 95°F ambient",
+        "temperatureGlide": "Less than 1°F — effectively azeotropic"
+      },
+      "oilType": "POE (Polyolester) — same as R-410A",
+      "chargingMethod": "Charge as liquid per manufacturer — very low glide makes it more forgiving than other zeotropes.",
+      "serviceNotes": [
+        "PRIMARY VALUE: A1 classification means NO flammability concerns — existing service practices, no A2L tooling required",
+        "GWP 733 — significantly lower than R-410A (2088) but higher than R-32 (675) or R-454B (466)",
+        "Contains CF3I (trifluoroiodomethane) — novel iodine-containing molecule with some light sensitivity questions",
+        "Pressures, oil, and capacity nearly identical to R-410A — smooth transition for technicians already familiar",
+        "Stability under high temperatures and UV exposure being studied — long-term field data still developing",
+        "Currently more expensive than A2L alternatives — market adoption depends on cost parity",
+        "Best fit for applications where A2L flammability is a code concern (older buildings, specific jurisdictions)",
+        "Drop-in potential for existing R-410A equipment under evaluation — not yet manufacturer-approved as retrofit"
       ]
     }
   }

@@ -1,14 +1,25 @@
 {
   "category": "common-failures",
   "title": "Common HVAC Failures & Diagnostic Trees",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "entries": [
     {
       "id": "cf-001",
       "fault": "Bad Run Capacitor",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "RTU (Rooftop)"
+      ],
       "frequency": "very_common",
-      "symptoms": ["Compressor not running", "Fan not running (indoor or outdoor)", "Unit not turning on", "Loud noise / vibration", "Tripping breaker / blowing fuses"],
+      "symptoms": [
+        "Compressor not running",
+        "Fan not running (indoor or outdoor)",
+        "Unit not turning on",
+        "Loud noise / vibration",
+        "Tripping breaker / blowing fuses"
+      ],
       "diagnosticSteps": [
         "Visual inspect capacitor for bulging, leaking, or burn marks",
         "Disconnect power and discharge capacitor safely",
@@ -38,9 +49,20 @@
     {
       "id": "cf-002",
       "fault": "Low Refrigerant Charge",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
       "frequency": "very_common",
-      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Short cycling (turns on/off rapidly)", "Compressor not running"],
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "Freezing up / ice on unit",
+        "Short cycling (turns on/off rapidly)",
+        "Compressor not running"
+      ],
       "diagnosticSteps": [
         "Connect gauges - check suction and discharge pressures",
         "Compare to saturation temp for refrigerant type at current ambient",
@@ -64,14 +86,32 @@
       ],
       "pressureSignatures": {
         "R-410A": {
-          "normal": { "suction": "118-125 psig", "discharge": "375-415 psig" },
-          "lowCharge": { "suction": "80-100 psig", "discharge": "280-340 psig" },
-          "veryLow": { "suction": "< 80 psig", "discharge": "< 280 psig" }
+          "normal": {
+            "suction": "118-125 psig",
+            "discharge": "375-415 psig"
+          },
+          "lowCharge": {
+            "suction": "80-100 psig",
+            "discharge": "280-340 psig"
+          },
+          "veryLow": {
+            "suction": "< 80 psig",
+            "discharge": "< 280 psig"
+          }
         },
         "R-22": {
-          "normal": { "suction": "68-75 psig", "discharge": "225-265 psig" },
-          "lowCharge": { "suction": "45-60 psig", "discharge": "180-210 psig" },
-          "veryLow": { "suction": "< 45 psig", "discharge": "< 180 psig" }
+          "normal": {
+            "suction": "68-75 psig",
+            "discharge": "225-265 psig"
+          },
+          "lowCharge": {
+            "suction": "45-60 psig",
+            "discharge": "180-210 psig"
+          },
+          "veryLow": {
+            "suction": "< 45 psig",
+            "discharge": "< 180 psig"
+          }
         }
       },
       "repairProcedure": "1. Find and repair leak first - NEVER just add refrigerant without leak repair. 2. Recover remaining charge. 3. Pull vacuum to 500 microns, hold for 15 min. 4. Weigh in factory charge per nameplate. 5. Adjust for line set length (typically +0.6 oz per foot over 25ft for R-410A). 6. Verify superheat and subcooling after charge.",
@@ -87,9 +127,19 @@
     {
       "id": "cf-003",
       "fault": "Dirty Condenser Coil",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "RTU (Rooftop)"
+      ],
       "frequency": "very_common",
-      "symptoms": ["Not cooling / insufficient cooling", "High energy bills", "Short cycling (turns on/off rapidly)", "Tripping breaker / blowing fuses"],
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "High energy bills",
+        "Short cycling (turns on/off rapidly)",
+        "Tripping breaker / blowing fuses"
+      ],
       "diagnosticSteps": [
         "Visual inspection of condenser coil - look for matted debris, cottonwood, grass clippings",
         "Check discharge pressure - will be elevated above normal",
@@ -111,9 +161,21 @@
     {
       "id": "cf-004",
       "fault": "Dirty/Clogged Air Filter",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
       "frequency": "very_common",
-      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Not heating / insufficient heating", "High energy bills", "Short cycling (turns on/off rapidly)"],
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "Freezing up / ice on unit",
+        "Not heating / insufficient heating",
+        "High energy bills",
+        "Short cycling (turns on/off rapidly)"
+      ],
       "diagnosticSteps": [
         "Check filter - hold up to light, if no light passes through it's too dirty",
         "Check static pressure across filter - should be < 0.3\" WC for 1\" filter",
@@ -127,9 +189,19 @@
     {
       "id": "cf-005",
       "fault": "Contactor Failure",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "RTU (Rooftop)"
+      ],
       "frequency": "common",
-      "symptoms": ["Compressor not running", "Unit not turning on", "Short cycling (turns on/off rapidly)", "Loud noise / vibration"],
+      "symptoms": [
+        "Compressor not running",
+        "Unit not turning on",
+        "Short cycling (turns on/off rapidly)",
+        "Loud noise / vibration"
+      ],
       "diagnosticSteps": [
         "Check for 24V across contactor coil - should pull in when thermostat calls",
         "Visual inspect contacts - look for pitting, arcing damage, or welded contacts",
@@ -151,9 +223,19 @@
     {
       "id": "cf-006",
       "fault": "Frozen Evaporator Coil",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split"
+      ],
       "frequency": "common",
-      "symptoms": ["Freezing up / ice on unit", "Not cooling / insufficient cooling", "Water leaking indoors", "Unit runs but no temperature change"],
+      "symptoms": [
+        "Freezing up / ice on unit",
+        "Not cooling / insufficient cooling",
+        "Water leaking indoors",
+        "Unit runs but no temperature change"
+      ],
       "diagnosticSteps": [
         "Check suction line - ice or heavy condensation/frost confirms freezing",
         "Check filter first - dirty filter is #1 cause",
@@ -181,9 +263,20 @@
     {
       "id": "cf-007",
       "fault": "Compressor Failure",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
       "frequency": "less_common",
-      "symptoms": ["Compressor not running", "Tripping breaker / blowing fuses", "Loud noise / vibration", "Not cooling / insufficient cooling"],
+      "symptoms": [
+        "Compressor not running",
+        "Tripping breaker / blowing fuses",
+        "Loud noise / vibration",
+        "Not cooling / insufficient cooling"
+      ],
       "diagnosticSteps": [
         "BEFORE condemning compressor, ALWAYS check: capacitor, contactor, supply voltage, wiring",
         "Check compressor windings with ohmmeter: C-R, C-S, R-S (R+S should equal C-R + C-S within 3%)",
@@ -213,9 +306,18 @@
     {
       "id": "cf-008",
       "fault": "TXV (Thermostatic Expansion Valve) Failure",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split"
+      ],
       "frequency": "common",
-      "symptoms": ["Not cooling / insufficient cooling", "Freezing up / ice on unit", "Short cycling (turns on/off rapidly)"],
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "Freezing up / ice on unit",
+        "Short cycling (turns on/off rapidly)"
+      ],
       "diagnosticSteps": [
         "Check superheat at evaporator outlet - should be 8-12°F for TXV system",
         "Very low superheat (<3°F) = TXV stuck open / overfeeding → flooding coil, risk of slugging compressor",
@@ -239,9 +341,18 @@
     {
       "id": "cf-009",
       "fault": "Blower Motor Failure",
-      "equipmentTypes": ["Split System A/C", "Heat Pump", "Package Unit"],
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit"
+      ],
       "frequency": "common",
-      "symptoms": ["Fan not running (indoor or outdoor)", "Not cooling / insufficient cooling", "Not heating / insufficient heating", "Loud noise / vibration"],
+      "symptoms": [
+        "Fan not running (indoor or outdoor)",
+        "Not cooling / insufficient cooling",
+        "Not heating / insufficient heating",
+        "Loud noise / vibration"
+      ],
       "diagnosticSteps": [
         "Check for voltage at motor leads - should have line voltage (120V or 240V depending on motor)",
         "PSC motor: check run capacitor first - most common cause of 'dead' motor",
@@ -264,9 +375,16 @@
     {
       "id": "cf-010",
       "fault": "Reversing Valve Failure (Heat Pump)",
-      "equipmentTypes": ["Heat Pump", "Mini-Split"],
+      "equipmentTypes": [
+        "Heat Pump",
+        "Mini-Split"
+      ],
       "frequency": "less_common",
-      "symptoms": ["Reversing valve issue (heat pump)", "Not heating / insufficient heating", "Not cooling / insufficient cooling"],
+      "symptoms": [
+        "Reversing valve issue (heat pump)",
+        "Not heating / insufficient heating",
+        "Not cooling / insufficient cooling"
+      ],
       "diagnosticSteps": [
         "System cools when it should heat (or vice versa) - valve stuck in wrong position",
         "Both suction and discharge lines same temperature = valve body leaking internally",
@@ -284,6 +402,673 @@
       "repairProcedure": "1. Try energizing/de-energizing solenoid manually. 2. If solenoid clicks but valve doesn't shift: check charge level, try tapping valve body. 3. If internal leak: valve must be replaced (brazed into system). 4. Recovery, replace, evacuate, recharge. Very labor-intensive repair.",
       "estimatedTime": "4-8 hours",
       "partsCost": "$200-$600"
+    },
+    {
+      "id": "cf-011",
+      "fault": "Heat Exchanger Crack (Gas Furnace)",
+      "equipmentTypes": [
+        "Gas Furnace",
+        "Package Unit"
+      ],
+      "frequency": "less_common",
+      "symptoms": [
+        "Carbon monoxide alarm activation",
+        "Yellow/flickering burner flame instead of blue",
+        "Soot accumulation around burners or vent",
+        "Headaches/nausea/dizziness from occupants",
+        "Flame disturbance when blower starts",
+        "Rust or scale flakes on burners",
+        "Visible cracks or holes in heat exchanger surface",
+        "Furnace short cycling on flame rollout switch"
+      ],
+      "diagnosticSteps": [
+        "SAFETY FIRST: If CO suspected, evacuate occupants and ventilate before testing",
+        "Use combustion analyzer at flue - CO levels above 100 ppm air-free indicate problem",
+        "Visual inspection with inspection mirror and borescope/inspection camera through burner opening",
+        "Light burners and observe flame pattern - flame should be steady blue cone",
+        "Turn on blower (G call only, no W) - watch for flame disturbance, flickering, or roll-out",
+        "Pressure test: cap flue and pressurize cold side to 0.5&quot; WC, watch for pressure drop",
+        "Smoke test: introduce smoke into return air with blower on, watch for smoke at burners",
+        "Check primary heat exchanger tubes (clamshell or tubular) at bends - most common crack location",
+        "Check secondary heat exchanger (90%+ furnaces) for corrosion holes - condensate-related",
+        "Tape test: place tissue paper at burners during blower operation - movement indicates breach",
+        "Document findings with photos - crack confirmation requires furnace shutdown"
+      ],
+      "rootCauses": [
+        "Thermal stress fatigue from repeated heating/cooling cycles (primary cause - 15-25 year typical life)",
+        "Oversized furnace causing short cycling and excessive expansion/contraction",
+        "Restricted airflow causing overheating (dirty filter, undersized return)",
+        "Condensate corrosion on secondary heat exchanger (high-efficiency units)",
+        "Improper venting causing flue gas condensation in primary heat exchanger",
+        "Cracked or warped from delayed ignition explosions",
+        "Manufacturing defect in early model years (some recalls exist - check serial number)"
+      ],
+      "repairProcedure": "Heat exchanger replacement is rarely cost-effective - typically 50-70% of cost of new furnace. RED-TAG the unit and shut off gas immediately if confirmed crack. Document with photos. Options: 1) Replace heat exchanger (if under warranty - some have 20-year or lifetime parts coverage). 2) Replace entire furnace (recommended on units &gt;12 years old). 3) NEVER continue operating a cracked heat exchanger - life safety issue. Install CO detectors on every level if not present.",
+      "estimatedTime": "6-10 hours (heat exchanger swap) or 1 day (full furnace replace)",
+      "partsCost": "$500-$1500 (heat exchanger) or $2000-$5000 (new furnace)",
+      "laborCost": "$600-$1500",
+      "commonMistakes": [
+        "Using only visual inspection without combustion analyzer - many cracks are not visible",
+        "Not red-tagging unit when crack confirmed - liability and safety issue",
+        "Confusing rust/scale with actual crack - use camera and pressure test to verify",
+        "Telling customer might be cracked without confirmation - causes panic or false alarm",
+        "Not checking root cause (oversized unit, restricted airflow) - new HX will fail too",
+        "Forgetting to install/verify CO detectors before leaving job"
+      ]
+    },
+    {
+      "id": "cf-012",
+      "fault": "Condensate Drain Clog / Overflow",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "Gas Furnace"
+      ],
+      "frequency": "very_common",
+      "symptoms": [
+        "Water leaking indoors",
+        "Water staining on ceiling below attic unit",
+        "System shut off by float switch",
+        "Musty/moldy smell from registers",
+        "Standing water in drain pan",
+        "AC won't turn on (float switch open)",
+        "Algae visible at drain line termination"
+      ],
+      "diagnosticSteps": [
+        "Check primary drain pan for standing water - confirms drain restriction",
+        "Check secondary drain pan (under air handler) for water - means primary failed",
+        "Locate float switch - safety switch in primary pan or in drain line tee",
+        "Test float switch: lift float manually with system calling for cooling - should kill 24V",
+        "Check drain line slope - minimum 1/8 inch per foot, no sags or bellies",
+        "Inspect drain line termination outside - look for algae, debris, or insects",
+        "Check P-trap - should be properly sized and primed (water-filled)",
+        "Verify trap depth - must be deeper than negative pressure of blower (typically 2-3 inch minimum)",
+        "Look for missing trap entirely - common DIY mistake causes drainage issues",
+        "Check for biological growth (algae/slime) in pan, drain pan tablet residue indicates neglect",
+        "Inspect coil drain pan for rust holes or cracks - secondary leak source"
+      ],
+      "rootCauses": [
+        "Algae and biological slime growth blocking drain (most common - dark, moist environment)",
+        "Dust/debris accumulation in drain line over years",
+        "Improper drain line slope or sagging PVC",
+        "Missing or improperly sized P-trap (cannot drain against blower negative pressure)",
+        "Disconnected drain line at fittings (vibration over time)",
+        "Frozen drain line in attic during winter (incomplete insulation)",
+        "Insects/wasps building nests in drain termination outside",
+        "Rusted-through drain pan (older units, especially horizontal coils)",
+        "Failed float switch stuck closed (water keeps rising past safety)"
+      ],
+      "repairProcedure": "1. Shut off system at thermostat. 2. Locate cleanout tee in drain line near air handler. 3. Use wet/dry vac on outdoor termination - pull suction for 1-2 minutes to clear blockage. 4. Alternative: blow out with nitrogen at low pressure (5-10 psi MAX - higher pressure damages pan). 5. Flush with 50/50 distilled vinegar/water OR dilute bleach (1:16) - vinegar is safer and recommended. 6. Some pros prefer pan tablets (Pan-Pro or similar) for ongoing prevention. 7. Verify drainage by pouring 1 gallon water into pan. 8. Check P-trap is primed. 9. Test float switch by manually lifting. 10. Inspect drain pan for rust/damage - replace if compromised. 11. Recommend customer pour 1 cup vinegar in drain monthly during cooling season.",
+      "estimatedTime": "30-90 minutes",
+      "partsCost": "$5-$50 (cleaning supplies, possible float switch)",
+      "laborCost": "$100-$250",
+      "commonMistakes": [
+        "Using high-pressure nitrogen or compressed air - can crack drain pan or blow joints apart",
+        "Using straight bleach - corrodes coil and pan over time, damages aluminum",
+        "Skipping the P-trap - water won't drain against blower suction",
+        "Not flushing the pan itself - just clears line, biological growth returns quickly",
+        "Bypassing float switch instead of fixing drainage - guaranteed water damage",
+        "Not checking secondary pan / safety pan in attic installations",
+        "Forgetting to prime trap after service - trap won't seal against negative pressure"
+      ]
+    },
+    {
+      "id": "cf-013",
+      "fault": "Furnace Ignitor Failure (Hot Surface Ignitor)",
+      "equipmentTypes": [
+        "Gas Furnace",
+        "Package Unit"
+      ],
+      "frequency": "very_common",
+      "symptoms": [
+        "Not heating / insufficient heating",
+        "Furnace cycles but no flame",
+        "Clicking sound but no ignition",
+        "Furnace lockout after 3 ignition attempts",
+        "Cracked ignitor visible on inspection",
+        "Ignitor glows weakly or not at all"
+      ],
+      "diagnosticSteps": [
+        "Initiate heat call at thermostat and observe ignition sequence",
+        "Watch for ignitor glow through inspection port - should glow bright orange/white within 15-45 seconds",
+        "If no glow: shut off power, remove ignitor (be GENTLE - very brittle)",
+        "Visual inspect for hairline cracks - cracked ignitor will not heat properly",
+        "Check resistance with ohmmeter at ignitor terminals (disconnected from board)",
+        "Silicon Carbide (SiC) ignitor: 40-90 ohms cold (older style, more fragile, gray color)",
+        "Silicon Nitride (SiN) ignitor: 50-400 ohms cold (newer style, more durable, white/cream color)",
+        "Open circuit (OL reading) = failed ignitor, replace",
+        "Check supply voltage at ignitor wires during call: should be 120V (or 24V on some models)",
+        "If voltage is correct but ignitor does not glow = ignitor failed",
+        "If no voltage to ignitor: check control board ignitor relay, pressure switch closed, limit switches"
+      ],
+      "rootCauses": [
+        "Normal end-of-life from thermal cycling (5-7 years SiC, 10+ years SiN typical)",
+        "Physical damage from cleaning/handling (oils from skin contact accelerate failure)",
+        "Vibration cracks during furnace operation",
+        "Voltage spikes from electrical issues",
+        "Improper gap or position causing arcing",
+        "Contamination from dust/silicone/cleaning chemicals"
+      ],
+      "repairProcedure": "1. Shut off power at disconnect AND gas supply. 2. Remove burner compartment door. 3. Disconnect ignitor wire harness. 4. Remove ignitor mounting screw (usually 1/4 inch hex head). 5. NEVER touch ignitor element with bare fingers - skin oils cause hot spots and premature failure. 6. Install new ignitor - match by part number or universal kit. 7. Ensure proper position (ignitor should be in center of pilot/burner port). 8. Reconnect wiring. 9. Restore gas and power. 10. Initiate heat call and verify ignition sequence. 11. Check flame pattern after ignition. 12. Recommend SiN upgrade if replacing SiC for longer life.",
+      "estimatedTime": "30-60 minutes",
+      "partsCost": "$25-$80 (universal kits) to $50-$150 (OEM)",
+      "laborCost": "$100-$200",
+      "commonMistakes": [
+        "Touching ignitor element with bare hands - oils cause early failure",
+        "Cross-threading the mounting screw - cracks ceramic base",
+        "Not checking pressure switch and limit switches first - they prevent ignitor power",
+        "Installing wrong ignitor type for furnace model",
+        "Bending ignitor leads to fit - causes stress fractures",
+        "Not addressing root cause if multiple failures (voltage issues, vibration source)"
+      ]
+    },
+    {
+      "id": "cf-014",
+      "fault": "Inducer Motor Failure",
+      "equipmentTypes": [
+        "Gas Furnace",
+        "Package Unit"
+      ],
+      "frequency": "common",
+      "symptoms": [
+        "Not heating / insufficient heating",
+        "Pressure switch open error code",
+        "Furnace lockout - no ignition attempt",
+        "Loud humming or grinding from inducer",
+        "Inducer runs but burners don't light",
+        "Bearings noise from venter motor",
+        "Furnace cycles to lockout repeatedly",
+        "No draft proving / pressure switch never closes"
+      ],
+      "diagnosticSteps": [
+        "Initiate heat call - inducer should start FIRST (pre-purge cycle, 15-30 seconds)",
+        "Listen for inducer motor: if dead silent = no power or failed motor",
+        "Check for 120V at inducer motor leads during call",
+        "If voltage present but no spin: motor is failed (or seized bearings)",
+        "If inducer runs but pressure switch never closes: weak motor, blocked vent, or stuck switch",
+        "Check pressure switch hose for water, kinks, or disconnection",
+        "Measure pressure switch with manometer at hose port: typical -0.50 to -1.80 inches WC",
+        "Below threshold reading = inducer not creating enough draft",
+        "Spin motor by hand (power off): should turn smoothly, no grinding",
+        "Check motor capacitor if PSC inducer (some models)",
+        "Check vent pipe for obstructions: bird nests, ice blockage, condensate",
+        "Check secondary heat exchanger drain on 90%+ units - clogged drain backs water into pressure switch hose"
+      ],
+      "rootCauses": [
+        "Bearing failure from age and continuous cycling (most common - 10-15 year life)",
+        "Capacitor failure on PSC inducer motors (test cap first)",
+        "Burned windings from voltage issues or restricted vent",
+        "Wheel imbalance from corrosion or debris",
+        "Cracked motor housing allowing air leak",
+        "Failed pressure switch mistaken for inducer failure",
+        "Blocked vent pipe causing motor to overwork and overheat",
+        "Water in pressure switch hose preventing proper draft sensing"
+      ],
+      "repairProcedure": "1. Shut off power and gas. 2. Disconnect motor wiring (note polarity). 3. Disconnect pressure switch hose from inducer port. 4. Remove inducer assembly mounting screws. 5. Note gasket condition - replace if compromised (combustion gas leak hazard). 6. Install new inducer assembly with new gasket. 7. Reconnect wiring and pressure hose. 8. Restore power and gas. 9. Initiate heat call - verify pressure switch closes and ignition occurs. 10. Verify proper draft with manometer if possible. 11. Check for vent leaks around new gasket.",
+      "estimatedTime": "1-2 hours",
+      "partsCost": "$150-$450 (assembly with motor and housing)",
+      "laborCost": "$200-$400",
+      "commonMistakes": [
+        "Replacing inducer when pressure switch was the failed component",
+        "Forgetting to replace gasket - flue gas leak risk",
+        "Not checking vent pipe for blockage - new motor will fail too",
+        "Not draining secondary heat exchanger trap on 90%+ furnaces - water returns to pressure switch",
+        "Wrong rotation direction on universal replacement",
+        "Cross-wiring leads on motors with multiple speeds"
+      ]
+    },
+    {
+      "id": "cf-015",
+      "fault": "Dirty Evaporator Coil",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split"
+      ],
+      "frequency": "common",
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "Higher than normal humidity indoors",
+        "Reduced airflow at registers",
+        "Coil freezing up",
+        "Musty smell from vents",
+        "High energy bills",
+        "Visible dirt/dust caked between fins",
+        "Biological growth (mold/mildew) on coil"
+      ],
+      "diagnosticSteps": [
+        "Visual inspect coil through service port or by pulling cabinet panel",
+        "Look for matted dust between fins, often in 1/8 inch thick layer",
+        "Check coil entering and leaving sides - dirt usually accumulates on entering air side",
+        "Measure static pressure across coil - should be <0.3 inches WC, dirty coil shows >0.5 inches WC",
+        "Check temperature split: should be 16-22 degrees F across coil (cooling), low delta-T from poor airflow",
+        "Check superheat: low superheat (<5 degrees F) can indicate flooded coil from poor airflow",
+        "Check suction pressure: lower than normal due to reduced load on coil",
+        "Compare blower amp draw to nameplate FLA - high amps = motor working harder",
+        "Inspect for biological growth - black/green discoloration on aluminum fins",
+        "Check filter history - dirty coils usually result from poor filter maintenance"
+      ],
+      "rootCauses": [
+        "Inadequate filter maintenance allowing dust through to coil (primary cause)",
+        "Bypass air around filter (poor filter rack seal)",
+        "Cheap fiberglass filters with low MERV not capturing fine particles",
+        "High pet dander or smoking environment",
+        "Construction debris from remodeling project",
+        "No filter present (DIY removal)",
+        "Biological growth from chronic moisture and lack of UV light",
+        "Improper installation allowing return-side dust ingress"
+      ],
+      "repairProcedure": "1. Shut off power and tag out at disconnect. 2. Access coil - remove cabinet panels or A-coil access plate. 3. Protect drain pan and surrounding area with plastic and rags. 4. For light dirt: brush from leaving air side with soft brush, then vacuum. 5. For heavy dirt or biological growth: use coil cleaner. 6. ALKALINE cleaner (Nu-Calgon Evap Pow'r or similar) for general dirt and oils - foaming action lifts dirt. 7. ACID cleaner for severe corrosion staining or mineral deposits - use with EXTREME caution, full PPE. 8. NEVER use acid cleaner on aluminum micro-channel coils - destroys coating. 9. Apply cleaner per directions, allow dwell time (usually 5-10 min). 10. Rinse THOROUGHLY with low-pressure water - chemical residue corrodes coil. 11. Verify drain pan and line clear before restoring power. 12. Recommend UV light installation to prevent biological regrowth.",
+      "estimatedTime": "1-3 hours",
+      "partsCost": "$15-$50 (cleaner)",
+      "laborCost": "$200-$500",
+      "commonMistakes": [
+        "Using acid cleaner on aluminum micro-channel coils - permanently damages",
+        "Not protecting drain pan/electronics during cleaning - water damage",
+        "Skipping rinse step - chemical residue continues corroding coil",
+        "Using too much pressure on rinse - bends fins flat",
+        "Not addressing filter issue - coil will be dirty again in months",
+        "Not testing system after cleaning to verify proper temperature split"
+      ]
+    },
+    {
+      "id": "cf-016",
+      "fault": "Gas Valve Failure",
+      "equipmentTypes": [
+        "Gas Furnace",
+        "Package Unit"
+      ],
+      "frequency": "less_common",
+      "symptoms": [
+        "Not heating / insufficient heating",
+        "No gas to burners despite ignition attempt",
+        "Furnace locks out after ignition trials",
+        "Click from gas valve but no flame",
+        "Erratic flame size",
+        "Gas smell near furnace (valve leak)",
+        "Pilot won't stay lit (older standing pilot units)"
+      ],
+      "diagnosticSteps": [
+        "SAFETY: Use gas leak detector and soap solution before starting work",
+        "Initiate heat call and observe ignition sequence through complete cycle",
+        "After inducer purge and ignitor warm-up, check for 24V at gas valve terminals during call",
+        "Use voltmeter on MV (main valve) and PV (pilot valve, if applicable) terminals",
+        "If no 24V at valve during call: control board, flame sensor, or rollout switch issue",
+        "If 24V present at valve but no gas flow: gas valve is failed",
+        "Check inlet gas pressure with manometer at inlet tap (typical 7 inches WC for natural, 11 inches WC for LP)",
+        "Check outlet/manifold pressure at outlet tap during burn (typical 3.5 inches WC NG, 10 inches WC LP)",
+        "Outlet pressure too low or zero with valve energized = failed valve",
+        "Outlet pressure unstable/fluctuating = failing pressure regulator section",
+        "Test high-fire and low-fire pressures on two-stage valves",
+        "Verify wiring at valve - terminals labeled MV, MV/PV, PV, TH, TR (24V common terminology)"
+      ],
+      "rootCauses": [
+        "Internal solenoid coil failure (no gas flow despite voltage)",
+        "Diaphragm failure in regulator section (incorrect outlet pressure)",
+        "Foreign material lodged in valve seat (debris from supply line)",
+        "Corrosion from moisture infiltration",
+        "Lockout from internal safety after multiple failed ignition attempts",
+        "Wrong gas type conversion (NG vs LP) without orifice/regulator change",
+        "Voltage spike or board failure damaging valve solenoid",
+        "Age - 15-20 year typical valve life"
+      ],
+      "repairProcedure": "1. Shut off gas at upstream shutoff and electrical disconnect. 2. Document existing wiring with photo. 3. Disconnect 24V wiring from valve. 4. Disconnect gas piping (use two wrenches to avoid damaging valve - back-up wrench essential). 5. Remove old valve. 6. Apply gas-rated thread sealant (yellow Teflon tape rated for gas, or pipe dope) - never use white Teflon on gas. 7. Install new valve - VERIFY arrow on body shows correct flow direction. 8. Match valve type: single-stage, two-stage, or modulating. 9. Verify it matches gas type (NG or LP). 10. Reconnect wiring per labeled terminals. 11. Pressurize and leak-check ALL fittings with soap solution and electronic detector. 12. Power up and test through complete heat cycle. 13. Verify manifold pressure at outlet tap matches nameplate spec. 14. Final leak check after temperature rise. 15. Verify CO levels with combustion analyzer.",
+      "estimatedTime": "2-3 hours",
+      "partsCost": "$150-$500 (single-stage to two-stage)",
+      "laborCost": "$250-$500",
+      "commonMistakes": [
+        "Replacing valve without checking that voltage is reaching it - wasted part",
+        "Using wrong thread sealant on gas connections - leak hazard",
+        "Not verifying manifold pressure after install - over/under-firing causes other failures",
+        "Wrong valve type for gas (NG/LP) or stage configuration",
+        "Not checking inlet pressure first - low supply pressure mimics valve failure",
+        "Skipping comprehensive leak check after install - life safety issue",
+        "Forgetting to remove plastic shipping plug from inlet/outlet ports",
+        "Not verifying CO levels post-repair with combustion analyzer"
+      ]
+    },
+    {
+      "id": "cf-017",
+      "fault": "Defrost Board Failure (Heat Pump)",
+      "equipmentTypes": [
+        "Heat Pump",
+        "Package Unit"
+      ],
+      "frequency": "less_common",
+      "symptoms": [
+        "Outdoor coil completely iced over in heating mode",
+        "Heat pump stuck in defrost mode (running cooling outdoors)",
+        "No defrost cycle initiating during heating",
+        "Aux/emergency heat running constantly",
+        "Loud whoosh of reversing valve at random intervals",
+        "Heat strips coming on without defrost activation",
+        "Reduced heating capacity in cold weather",
+        "Excessive ice buildup damaging fan blades"
+      ],
+      "diagnosticSteps": [
+        "Verify problem is defrost-related: outdoor coil heavily iced in heating mode confirms",
+        "Check defrost timer settings on board: typically 30, 60, or 90 minute intervals",
+        "Locate defrost board - usually in outdoor unit control box",
+        "Initiate forced defrost: short test pins on board (TEST/SPEEDUP pins) per manufacturer",
+        "Watch for proper sequence: reversing valve clicks, outdoor fan stops, aux heat energizes",
+        "Time normal defrost cycle: 5-10 minutes typical, terminates by temp or 10-min max time",
+        "Check defrost thermostat (clamped to liquid line at coil) - opens at 32 degrees F, closes at 80 degrees F",
+        "Test defrost thermostat with ohmmeter: should be closed below 32 degrees F, open above 80 degrees F",
+        "Verify board outputs: 24V to reversing valve solenoid during defrost call",
+        "Check W2/aux heat output during defrost - prevents cold air discharge indoors",
+        "Inspect board for burn marks, swollen capacitors, or corrosion",
+        "Some boards have LED diagnostics - decode flash patterns per manufacturer"
+      ],
+      "rootCauses": [
+        "Failed defrost board electronics (relay or processor failure)",
+        "Defrost thermostat (sensor) failed - stuck open or closed",
+        "Defrost sensor not making good contact with liquid line",
+        "Loose or corroded connections at board terminals",
+        "Voltage spike damage from lightning or grid issues",
+        "Moisture intrusion into outdoor control box",
+        "Board age (typically 10-15 year life)",
+        "Insect damage to circuit board (ants, spiders nesting)"
+      ],
+      "repairProcedure": "Defrost cycle background: heat pump runs in cooling mode briefly to melt ice off outdoor coil, then returns to heating. Cycle initiates when defrost thermostat senses coil is cold AND timer interval has elapsed (demand defrost on newer units uses pressure or temp differential). 1. Shut off power at disconnect. 2. Photograph existing wiring. 3. Note model and revision of board. 4. Replace with EXACT match or universal board with proper jumper settings. 5. Universal boards: configure timer (30/60/90 min), match terminal layout, set heat pump type. 6. Reconnect all wiring per labels. 7. Test defrost via TEST pins - verify proper sequence. 8. Allow normal operation in heating mode and observe a natural defrost cycle.",
+      "estimatedTime": "1-2 hours",
+      "partsCost": "$80-$300",
+      "laborCost": "$200-$400",
+      "commonMistakes": [
+        "Replacing board when defrost sensor was actually failed (much cheaper part)",
+        "Wrong jumper settings on universal board - causes too-frequent or no defrosts",
+        "Not checking defrost sensor mounting/contact - intermittent issues persist",
+        "Mistaking ice from low charge for defrost board issue",
+        "Not testing forced defrost cycle after replacement",
+        "Not checking outdoor fan motor capacitor - sometimes weak fan causes ice issues",
+        "Forgetting to seal control box after service - moisture causes recurring failures"
+      ]
+    },
+    {
+      "id": "cf-018",
+      "fault": "Filter Drier Restriction / Plugged",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
+      "frequency": "less_common",
+      "symptoms": [
+        "Not cooling / insufficient cooling",
+        "High subcooling readings",
+        "Low suction pressure",
+        "High superheat at evaporator",
+        "Liquid line cold/sweating downstream of drier",
+        "Frost forming on liquid line at drier outlet",
+        "Unit appears low on charge but is properly charged",
+        "Compressor short cycling on low pressure"
+      ],
+      "diagnosticSteps": [
+        "Connect gauges and verify charge by superheat/subcooling method",
+        "Check superheat: high superheat (>20 degrees F TXV system) suggests starved evaporator",
+        "Check subcooling: high subcooling (>15 degrees F) suggests liquid restriction backing up",
+        "Measure temperature at drier inlet AND outlet using clamp-on thermometer or IR gun",
+        "Normal: <2 degrees F temperature drop across drier",
+        "5-10 degree F drop = restriction beginning to develop",
+        ">10 degree F drop = significant restriction confirmed",
+        "Look/feel for frost or sweating at drier outlet - cold spot indicates pressure drop",
+        "Compare to previous service records - new restriction or progressive issue",
+        "Listen for unusual flow sound (hissing) at drier indicating high pressure drop"
+      ],
+      "rootCauses": [
+        "Moisture saturation - desiccant beads expand and crumble (most common after extended operation with leak)",
+        "Burnout debris from compressor failure passing through system",
+        "Brazing scale and copper oxide from improper installation (no nitrogen purge)",
+        "System contamination from improper charging procedures",
+        "Drier age - desiccant capacity exhausted (typically install new with any major service)",
+        "Wrong drier size for system tonnage",
+        "Bi-flow drier installed backward in heat pump system",
+        "Acid contamination from previous compressor failure"
+      ],
+      "repairProcedure": "1. Recover all refrigerant per EPA standards. 2. Cut out failed drier (do NOT unsweat with torch - may release acid/contamination). 3. Install new drier - match BTU rating (e.g., 084S = 4-ton). 4. CRITICAL: install with arrow pointing toward TXV/metering device (flow direction). 5. For heat pumps: install BI-FLOW drier (no flow direction) or two parallel driers with check valves. 6. Braze with nitrogen purge at 2-5 SCFH to prevent oxide formation inside tubing. 7. Pull deep vacuum to 500 microns minimum. 8. Triple-evacuate if moisture suspected. 9. Weigh in factory charge per nameplate. 10. Verify proper superheat and subcooling. 11. Re-check temperature drop across new drier - should be <2 degrees F.",
+      "estimatedTime": "2-4 hours",
+      "partsCost": "$25-$100 (drier) + brazing supplies",
+      "laborCost": "$300-$600",
+      "commonMistakes": [
+        "Installing drier backward (arrow direction wrong) - immediately restricts flow",
+        "Using one-way drier in heat pump - blocks reverse flow",
+        "Not purging with nitrogen during brazing - creates new oxide contamination",
+        "Inadequate vacuum after install - moisture immediately saturates new drier",
+        "Wrong drier size for system tonnage - too small saturates quickly",
+        "Not addressing root cause (leak, burnout, contamination) - new drier fails fast",
+        "Not weighing in charge - leaving system over or undercharged"
+      ]
+    },
+    {
+      "id": "cf-019",
+      "fault": "ECM Motor Communication / Module Failure",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Gas Furnace"
+      ],
+      "frequency": "common",
+      "symptoms": [
+        "Blower runs at wrong speed",
+        "Blower won't start despite call",
+        "Blower starts then stops (hunting)",
+        "Motor module LED showing fault code",
+        "Fan on continuous low speed in cooling mode",
+        "No airflow despite contactor pulled in",
+        "Furnace lockout from blower fault",
+        "Strange RPM ramping behavior"
+      ],
+      "diagnosticSteps": [
+        "Identify motor type: ECM (Electronically Commutated) vs PSC (Permanent Split Capacitor)",
+        "ECM identifiers: 16-pin connector to control module, no run capacitor, multiple speed taps via communication",
+        "ECM types: GE/Genteq ECM 2.3, ECM 3.0, X13 (constant torque), and variable-speed (full ECM)",
+        "X13 motor: simpler, accepts 24V signal on speed taps - easier to troubleshoot",
+        "Full ECM (variable speed): receives complex PWM signals from furnace board",
+        "Locate motor module - separate housing bolted to motor end (can be replaced separately on most ECMs)",
+        "Check for module LED status: typically flashes diagnostic codes",
+        "Common LED codes: solid = OK, slow flash = no demand, rapid flash = fault",
+        "Verify 24V signals at motor harness during call - check pins per wiring diagram",
+        "Power-cycle the system at disconnect - sometimes resets a hung module",
+        "Test motor windings independently: separate motor from module, check 3-phase windings (~1-3 ohm balanced)",
+        "If windings good but module faulted: replace module only ($150-300 vs $600+ for full motor)"
+      ],
+      "rootCauses": [
+        "Module electronics failure from age or voltage spike (most common)",
+        "Moisture intrusion into module housing - water/condensate damage",
+        "Power surge or lightning damage to electronics",
+        "Communication wire damage (mice chewing, vibration breaking solder joints)",
+        "Wrong replacement module for motor model",
+        "Heat damage from restricted airflow or blocked drain",
+        "Voltage issues - ECMs sensitive to voltage outside 187-253V range"
+      ],
+      "repairProcedure": "ECM vs PSC overview: PSC motors are simpler, capacitor-driven, fixed RPM per tap selection - replace as a unit. ECM motors have a separate module (control board) bolted to the motor body that can often be replaced independently. 1. Identify motor model (sticker on motor body - GE/Genteq/Regal Beloit) and HP rating. 2. Determine if module-only replacement is possible (true on most GE/Genteq ECMs). 3. Shut off power at disconnect. 4. Disconnect motor from electrical and control wiring (photograph orientation first). 5. Remove module retaining bolts (typically 3 hex screws). 6. Slide module off motor end. 7. Install new module - it MUST match motor model number (programmed to specific motor). 8. Reconnect harness - communications and high voltage. 9. Restore power and run through cooling and heating modes. 10. Verify CFM by measuring static pressure or using flow hood.",
+      "estimatedTime": "1-3 hours",
+      "partsCost": "$150-$400 (module only) or $400-$1000+ (full motor)",
+      "laborCost": "$200-$500",
+      "commonMistakes": [
+        "Assuming motor failure when only the module is bad - wasting customer's money on full motor",
+        "Installing wrong module - they're motor-specific, not universal",
+        "Not checking for moisture damage source - new module fails too",
+        "Confusing ECM with PSC and trying to test with capacitor",
+        "Not verifying CFM after replacement - wrong programming = wrong airflow",
+        "Not addressing voltage issues - new module dies the same way"
+      ]
+    },
+    {
+      "id": "cf-020",
+      "fault": "Refrigerant Overcharge",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
+      "frequency": "common",
+      "symptoms": [
+        "Higher than normal discharge pressure",
+        "Higher than normal subcooling (>15 degrees F)",
+        "Compressor amp draw above RLA",
+        "Compressor short cycling on high pressure",
+        "Reduced cooling capacity despite running",
+        "Liquid slugging sounds at compressor startup",
+        "Compressor failure from liquid floodback",
+        "Tripping high-pressure switch",
+        "Warm air from registers despite running"
+      ],
+      "diagnosticSteps": [
+        "Connect manifold gauges and record suction and discharge pressures",
+        "Calculate subcooling: condensing saturation temp minus liquid line temp",
+        "High subcooling (>15 degrees F on TXV system, >12 degrees F on piston) indicates overcharge",
+        "Calculate superheat: low superheat (<5 degrees F) on overcharged systems",
+        "Compare discharge pressure to ambient: should be ambient + 30-50 degrees F as condensing temp",
+        "Discharge pressure 50+ PSIG above expected = overcharge or restriction",
+        "Check ambient conditions: high ambient also raises pressures (rule out)",
+        "Check airflow across condenser coil - dirty coil mimics overcharge",
+        "Check amp draw at compressor - elevated above RLA from high head pressure",
+        "Listen at compressor for slugging sounds (knocking, liquid hammer)",
+        "Review service history - was charge weighed in or topped off?"
+      ],
+      "rootCauses": [
+        "Tech topping off charge by pressure rather than weighing in (most common)",
+        "Adding refrigerant on cool day then heat returns and pressures spike",
+        "Wrong charge calculation (line set length not accounted for)",
+        "Charging a flooded system - liquid going into low side increased mass",
+        "Multiple service calls each adding a little more",
+        "Wrong refrigerant scale calibration during charge weigh-in"
+      ],
+      "repairProcedure": "Overcharge consequences: liquid refrigerant can return to compressor (flooding/slugging), washing oil from bearings → premature compressor failure. 1. Connect recovery machine and recovery cylinder. 2. Recover small amounts incrementally - 4-8 oz at a time. 3. Allow system to stabilize 5-10 minutes between recovery. 4. Recheck superheat and subcooling. 5. Target factory subcooling per nameplate (typically 8-12 degrees F for TXV). 6. Consider full recovery and weigh-in if overcharge is significant. 7. If full recovery: pull vacuum to 500 microns. 8. Weigh in factory charge plus line set adjustment. 9. Run system 15+ minutes at design conditions before final readings. 10. Document final superheat, subcooling, and pressures on service ticket.",
+      "estimatedTime": "1-2 hours",
+      "partsCost": "$0-$50 (refrigerant disposal/recovery)",
+      "laborCost": "$150-$400",
+      "commonMistakes": [
+        "Releasing refrigerant to atmosphere instead of proper recovery (EPA violation, $44,539 fine per violation)",
+        "Removing too much at once - now system is undercharged",
+        "Not recording amount removed for service records",
+        "Adding refrigerant to overcharged system thinking it was low",
+        "Not weighing for verification - estimating by gauge",
+        "Failing to address why system was overcharged (training issue, gauge error)"
+      ]
+    },
+    {
+      "id": "cf-021",
+      "fault": "High Limit Switch Tripped (Furnace)",
+      "equipmentTypes": [
+        "Gas Furnace",
+        "Package Unit"
+      ],
+      "frequency": "common",
+      "symptoms": [
+        "Not heating / insufficient heating",
+        "Furnace fires briefly then shuts down",
+        "Burners light, run a few minutes, then shut off",
+        "Blower runs continuously after burners shut off",
+        "Cycling on limit (short cycling on heat)",
+        "Manual reset limit popped (older furnaces)",
+        "Furnace lockout after multiple limit trips"
+      ],
+      "diagnosticSteps": [
+        "Identify limit switch type: auto-reset bimetal disc or manual-reset (rollout switches typically manual)",
+        "Locate primary high-limit (mounted on heat exchanger or supply plenum)",
+        "Note temperature rating - typically 160-200 degrees F for primary limit",
+        "Initiate heat call and monitor: how long do burners run before limit trips?",
+        "Measure temperature rise: supply temp minus return temp",
+        "Should match nameplate temperature rise spec (typically 35-65 degrees F range)",
+        "Excessive temp rise (>spec) = airflow problem or overfired furnace",
+        "Check filter - dirty filter is most common limit trip cause",
+        "Check evaporator coil for restriction or icing",
+        "Check ductwork: closed dampers, registers blocked, kinked flex duct",
+        "Verify blower speed tap is correct for cooling and heating modes",
+        "Test limit switch with ohmmeter cold: should be closed (continuity)",
+        "Check secondary/rollout limits in burner area - flame rollout indicates blocked flue or HX issue",
+        "Verify gas pressure/manifold pressure - over-firing causes overheating"
+      ],
+      "rootCauses": [
+        "Restricted airflow - dirty filter (#1 cause - 60% of cases)",
+        "Dirty blower wheel reducing CFM",
+        "Closed/blocked supply registers or return grilles",
+        "Failed/slow blower motor or wrong speed tap",
+        "Collapsed flexible duct in attic",
+        "Oversized furnace creating excess heat for ductwork",
+        "Overfired due to wrong gas pressure or wrong gas type",
+        "Failed limit switch (intermittent or weak bimetal)",
+        "Heat exchanger crack causing localized hot spots"
+      ],
+      "repairProcedure": "Auto-reset vs manual-reset: Auto-reset (bimetal disc) self-restores when temp drops - keeps tripping if root cause not fixed. Manual-reset (button on top) requires physical reset - typically rollout safeties. Manual-reset trip means SERIOUS issue (HX crack, blocked flue) - investigate thoroughly. 1. NEVER bypass a manual-reset limit. 2. First check filter and replace if dirty. 3. Check blower wheel - clean if dirty. 4. Verify blower speed tap matches install requirements. 5. Measure CFM via static pressure if possible (target 400 CFM/ton heating). 6. Check temperature rise across furnace - must be within nameplate range. 7. If temperature rise high: increase blower speed, clean coil, check ductwork. 8. Replace limit switch only after ruling out airflow issues.",
+      "estimatedTime": "1-3 hours",
+      "partsCost": "$15-$80 (limit switch) or $5-$25 (filter)",
+      "laborCost": "$150-$350",
+      "commonMistakes": [
+        "Replacing limit switch without addressing airflow - same problem returns",
+        "Bypassing manual-reset limit - bypasses safety, fire/CO risk",
+        "Wrong limit temperature rating - nuisance trips or no protection",
+        "Not measuring temperature rise to confirm root cause",
+        "Forgetting to check heat exchanger for cracks - especially if rollout tripped",
+        "Setting blower speed too high - causes cold drafts"
+      ]
+    },
+    {
+      "id": "cf-022",
+      "fault": "Zone Control / Damper Failure",
+      "equipmentTypes": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Gas Furnace"
+      ],
+      "frequency": "less_common",
+      "symptoms": [
+        "One zone too hot or too cold",
+        "Zone calling but no airflow to that area",
+        "All zones receiving air despite single zone call",
+        "System short cycling from high static pressure",
+        "Whistling/howling from ductwork (high static)",
+        "Zone board fault LED active",
+        "Damper motor humming but not moving",
+        "Bypass damper open continuously"
+      ],
+      "diagnosticSteps": [
+        "Identify zone system type: 24V dampers, 3-wire dampers, or pneumatic (commercial)",
+        "Common manufacturers: Honeywell TrueZone, Zonex GenX, EWC Ultra-Zone, Aprilaire",
+        "Locate zone board - usually in basement/utility room near air handler",
+        "Check zone board status LEDs - power, call indicators, fault",
+        "Initiate single-zone call from one thermostat",
+        "Verify zone board energizes corresponding damper motor",
+        "Check 24V at damper motor terminals during call",
+        "Observe damper movement - listen for actuator motor running, watch blade rotate",
+        "Test damper actuator manually - should move freely when motor coupling disconnected",
+        "Check for stuck blade due to corrosion, debris, or warped sheet metal",
+        "Check static pressure with all zones closed except smallest - should not exceed 0.7 inches WC",
+        "Verify bypass damper opens during high static conditions",
+        "Test zone board outputs for equipment (Y, W, G, R, C terminals to air handler/condenser)"
+      ],
+      "rootCauses": [
+        "Damper motor (actuator) burned out from continuous operation",
+        "Mechanical binding from corrosion or debris in damper blade",
+        "Broken damper coupling between motor and shaft",
+        "Failed zone control board (check fuses on board first)",
+        "Stuck bypass damper not relieving pressure (high static damages equipment)",
+        "Wiring damage (mice, vibration, age) between board and dampers",
+        "Improperly sized system for zoning (small zone causes excessive bypass)",
+        "Zone board firmware corruption or memory failure"
+      ],
+      "repairProcedure": "Zoning fundamentals: Modern zoning uses motorized dampers in supply duct branches, controlled by a central zone board that responds to multiple thermostats. A bypass damper is critical - when too few zones are open, the bypass relieves excess static pressure into the return to protect equipment. 1. Identify failure mode (board, damper, wiring, bypass). 2. For damper actuator: shut off zone power, disconnect linkage, replace motor (typically $80-200 each). 3. For board failure: photograph wiring, replace with same model, transfer wires per labels. 4. For stuck damper blade: open access panel in duct, free the binding, lubricate pivot points. 5. Verify static pressure with various zone combinations - should never exceed 0.8 inches WC. 6. Test all zones individually after repair.",
+      "estimatedTime": "1-3 hours (single component) to 4-8 hours (full board replacement)",
+      "partsCost": "$80-$200 (single damper actuator), $200-$500 (zone board)",
+      "laborCost": "$200-$600",
+      "commonMistakes": [
+        "Not checking bypass damper operation - high static pressure damages compressor and blower",
+        "Replacing zone board without checking if simple fuse blew on board",
+        "Wrong damper actuator type (spring-return vs power-open) - will not function correctly",
+        "Bypassing failed dampers by leaving them open - eliminates zoning benefit",
+        "Not addressing oversized equipment with small zones - bypass pressure issues persist",
+        "Forgetting to check static pressure under various zone scenarios after repair"
+      ]
     }
   ]
 }

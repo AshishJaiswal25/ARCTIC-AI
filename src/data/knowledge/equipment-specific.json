@@ -1,7 +1,7 @@
 {
   "category": "equipment-specific",
   "title": "Equipment-Specific Knowledge",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "equipment": {
     "Split System A/C": {
       "description": "Most common residential cooling system. Indoor evaporator + outdoor condensing unit connected by line set.",
@@ -12,7 +12,13 @@
         "PSC or ECM blower motor indoor",
         "Single-stage or two-stage compressor"
       ],
-      "topFailures": ["Bad capacitor (run cap)", "Low refrigerant charge", "Dirty condenser coil", "Dirty filter causing coil freeze", "Contactor failure"],
+      "topFailures": [
+        "Bad capacitor (run cap)",
+        "Low refrigerant charge",
+        "Dirty condenser coil",
+        "Dirty filter causing coil freeze",
+        "Contactor failure"
+      ],
       "seasonalIssues": {
         "spring": "First startup after winter: check capacitors, contactor, refrigerant charge. Clean condenser coil. Cottonwood season clogs coils.",
         "summer": "Peak load failures: capacitors fail in heat, compressors overheat, high head pressure from dirty condensers.",
@@ -29,7 +35,14 @@
     },
     "Heat Pump": {
       "description": "Reversible system providing both heating and cooling. Uses reversing valve to switch between modes.",
-      "uniqueComponents": ["Reversing valve", "Defrost control board", "Defrost thermostat/sensor", "Auxiliary/emergency heat strips", "Outdoor temperature sensor", "Accumulator (suction line)"],
+      "uniqueComponents": [
+        "Reversing valve",
+        "Defrost control board",
+        "Defrost thermostat/sensor",
+        "Auxiliary/emergency heat strips",
+        "Outdoor temperature sensor",
+        "Accumulator (suction line)"
+      ],
       "commonConfigurations": [
         "2-5 ton capacity",
         "R-410A primary",
@@ -37,7 +50,13 @@
         "Two metering devices (one for each mode) or bi-directional TXV",
         "Defrost cycle: reverse cycle or demand defrost"
       ],
-      "topFailures": ["Stuck reversing valve", "Defrost board failure", "Outdoor coil icing up", "Auxiliary heat not working", "Low charge in heat mode"],
+      "topFailures": [
+        "Stuck reversing valve",
+        "Defrost board failure",
+        "Outdoor coil icing up",
+        "Auxiliary heat not working",
+        "Low charge in heat mode"
+      ],
       "heatModeCharging": {
         "notes": "Charging in heat mode is different - use manufacturer's heat mode charging chart",
         "superheatTarget": "Measured at outdoor coil in heat mode: 5-10°F",
@@ -52,7 +71,13 @@
     },
     "Mini-Split": {
       "description": "Ductless system with wall-mounted indoor head(s) connected to outdoor unit. Inverter-driven variable speed compressor.",
-      "uniqueComponents": ["Inverter compressor", "Electronic expansion valve (EEV)", "Wireless remote control", "Drain pump (some models)", "Indoor PCB with error LED/display"],
+      "uniqueComponents": [
+        "Inverter compressor",
+        "Electronic expansion valve (EEV)",
+        "Wireless remote control",
+        "Drain pump (some models)",
+        "Indoor PCB with error LED/display"
+      ],
       "commonConfigurations": [
         "9K-36K BTU single zone",
         "Multi-zone: 2-5 indoor heads on one outdoor",
@@ -60,7 +85,13 @@
         "All use EEV metering",
         "DC inverter compressor (variable speed)"
       ],
-      "topFailures": ["Communication error (indoor/outdoor)", "Inverter board failure", "EEV stepper motor", "Drain pump failure", "Indoor PCB fault"],
+      "topFailures": [
+        "Communication error (indoor/outdoor)",
+        "Inverter board failure",
+        "EEV stepper motor",
+        "Drain pump failure",
+        "Indoor PCB fault"
+      ],
       "diagnosticDifferences": [
         "Error codes displayed on indoor unit or remote - always check first",
         "Inverter compressors ramp up/down - amp draw varies, can't compare to fixed RLA",
@@ -73,7 +104,14 @@
     },
     "RTU (Rooftop)": {
       "description": "Self-contained package unit installed on commercial building roof. Contains all components in one cabinet.",
-      "uniqueComponents": ["Economizer (outdoor air damper)", "Smoke detector", "Exhaust fan", "VFD on supply fan (some)", "Multiple compressors (staged)", "Roof curb and vibration isolators"],
+      "uniqueComponents": [
+        "Economizer (outdoor air damper)",
+        "Smoke detector",
+        "Exhaust fan",
+        "VFD on supply fan (some)",
+        "Multiple compressors (staged)",
+        "Roof curb and vibration isolators"
+      ],
       "commonConfigurations": [
         "3-25 ton commercial",
         "R-410A or R-407C",
@@ -81,7 +119,13 @@
         "Economizer with enthalpy or dry-bulb control",
         "BAS/DDC integration"
       ],
-      "topFailures": ["Economizer damper failure (stuck open = excess humidity)", "Belt drive blower issues", "Multiple compressor staging problems", "Roof leak at curb penetration", "Enthalpy sensor failure"],
+      "topFailures": [
+        "Economizer damper failure (stuck open = excess humidity)",
+        "Belt drive blower issues",
+        "Multiple compressor staging problems",
+        "Roof leak at curb penetration",
+        "Enthalpy sensor failure"
+      ],
       "economizer": {
         "purpose": "Uses outdoor air for free cooling when outdoor conditions allow",
         "diagnostics": "Check damper actuator, enthalpy sensor, minimum position setting. Stuck open economizer = high humidity complaints. Stuck closed = no free cooling benefit.",
@@ -90,12 +134,250 @@
     },
     "Package Unit": {
       "description": "All components in single outdoor cabinet. No indoor unit - supply and return ducts connect directly.",
-      "topFailures": ["Same as split system PLUS: duct connection leaks, cabinet water intrusion, pest/rodent damage to wiring"],
+      "topFailures": [
+        "Same as split system PLUS: duct connection leaks, cabinet water intrusion, pest/rodent damage to wiring"
+      ],
       "specialNotes": [
         "All electrical connections exposed to weather - check for corrosion",
         "Supply air ductwork directly exposed - check for condensation and mold",
         "Filter access often on exterior - customers forget to change",
         "Gas heat section (if equipped) subject to wind interference - check flame pattern"
+      ]
+    },
+    "Gas Furnace": {
+      "description": "Forced-air heating appliance burning natural gas or propane. Heat transferred to supply air via heat exchanger. 80% AFUE (single heat exchanger, atmospheric/induced draft) or 90%+ AFUE (secondary heat exchanger, condensing, PVC venting).",
+      "uniqueComponents": [
+        "Primary heat exchanger (clamshell or tubular)",
+        "Secondary heat exchanger (condensing units only)",
+        "Inducer (draft) motor",
+        "Hot surface ignitor (HSI) — silicon nitride or silicon carbide",
+        "Flame sensor (flame rectification rod)",
+        "Pressure switch(es) — one per stage on multi-stage units",
+        "Gas valve (24VAC, single or two-stage or modulating)",
+        "Burner assembly (in-shot or ribbon burners)",
+        "High limit switch (auto-reset, 160-200°F typical)",
+        "Rollout switches (manual reset — safety critical)",
+        "Integrated furnace control board (IFC)",
+        "Flue/vent system (Cat I metal for 80%, Cat IV PVC for 90%+)",
+        "Condensate trap and drain (90%+ units only)"
+      ],
+      "commonConfigurations": [
+        "40,000-120,000 BTU input residential",
+        "80% AFUE single-stage (B-vent metal flue)",
+        "90-98% AFUE condensing (PVC vent + intake)",
+        "Single-stage, two-stage, or modulating gas valve",
+        "PSC, X13, or ECM blower motor",
+        "Upflow, downflow, horizontal, or multi-position cabinet",
+        "Natural gas or LP propane (requires conversion kit)"
+      ],
+      "topFailures": [
+        "Flame sensor coated with oxidation — won't prove flame, lockout after trial for ignition",
+        "Hot surface ignitor cracked (brittle silicon nitride, drops and fractures)",
+        "Pressure switch stuck open (blocked vent, condensate trap full, hose collapsed)",
+        "Inducer motor bearings failing (loud humming, slow startup, pressure switch fault)",
+        "Cracked heat exchanger (CO in supply air, often shows up after 12-15 years)",
+        "High limit switch tripping (low airflow, dirty filter, blower issue)",
+        "Blocked condensate drain causing pressure switch fault on 90%+ units",
+        "Rollout switch tripped (flame rolling out of burner box — DO NOT bypass, find root cause)",
+        "Gas valve coil failure (ohm test 24VAC coils: typically 30-80 ohms)"
+      ],
+      "seasonalIssues": {
+        "spring": "End-of-heating-season: pull blower, vacuum burners, inspect heat exchanger with camera/mirror, check flame pattern for orange/yellow tipping. Clean flame sensor with fine emery cloth — NOT sandpaper.",
+        "summer": "Off-season — moisture/rust accumulates in heat exchanger and burners. Spider webs in burner orifices common. AC running through same blower can stress motor bearings.",
+        "fall": "Pre-season tune-up critical: replace HSI if marginal ohms, test all safety switches, verify gas pressure (manifold + inlet), perform combustion analysis, draft test, CO test in flue and supply air.",
+        "winter": "Peak load failures — ignitor failure is the most common no-heat call. Pressure switch issues from snow/ice blocking concentric PVC vents. Frozen condensate line on 90%+ units."
+      },
+      "criticalMeasurements": {
+        "temperatureRise": "Must be within nameplate range, typically 35-65°F. Measure in supply 6 ft from furnace and return upstream of any heat source. High rise = low airflow. Low rise = too much airflow or undersized burner.",
+        "manifoldGasPressure": "Natural gas: 3.5 inches WC (single-stage) or 1.7/3.5 inches WC (two-stage low/high). LP: 10-11 inches WC. Measure with manometer at outlet pressure tap on gas valve.",
+        "inletGasPressure": "Natural gas: 5-10.5 inches WC static, must not drop below 5 inches WC under load. LP: 11-14 inches WC.",
+        "totalExternalStaticPressure": "Should not exceed nameplate (typically 0.5-0.8 inches WC). Measure supply (after coil) and return (before filter), add absolute values.",
+        "flameSignalMicroamps": "2-6 µA DC healthy. Below 1 µA = clean or replace flame sensor. Most boards lock out below 0.7 µA.",
+        "coInSupplyAir": "0 ppm — ANY measurable CO in supply air = cracked heat exchanger, shut down immediately.",
+        "coAirFreeFlue": "Below 100 ppm air-free acceptable. Above 400 ppm air-free = service required."
+      },
+      "heatingSequenceOfOperation": [
+        "1. Thermostat calls for heat — W terminal energized, 24VAC",
+        "2. IFC board receives W signal, energizes inducer motor immediately",
+        "3. Inducer creates negative pressure in vent system (15-30 sec spin-up)",
+        "4. Pressure switch closes when sufficient draft proven (typically 0.4-1.5 inches WC vacuum)",
+        "5. IFC energizes hot surface ignitor (15-45 sec warmup, glows bright orange/white)",
+        "6. Gas valve opens (24VAC to MV terminal), gas flows to burners",
+        "7. Burners ignite from HSI",
+        "8. Flame sensor proves flame within 4-7 second trial-for-ignition (DC microamp signal)",
+        "9. HSI de-energizes once flame proven",
+        "10. Blower delay timer (30-90 sec) then blower energizes on heat speed",
+        "11. High limit and rollout limits monitor for overheat throughout cycle",
+        "12. Thermostat satisfied: gas valve closes, inducer post-purges 15-30 sec, blower runs off-delay 60-180 sec"
+      ],
+      "diagnosticDifferences": [
+        "Always check error code/flash code on IFC board first — tells you which stage failed",
+        "Most failures present as no heat but root cause varies wildly by sequence stage",
+        "Never bypass a safety switch to get it running — safety switches indicate a real problem",
+        "Heat exchanger inspection requires camera + CO test + flame disturbance test",
+        "Combustion analyzer is mandatory for 90%+ units and best practice for all gas appliances"
+      ]
+    },
+    "Air Handler (AHU)": {
+      "description": "Indoor blower cabinet used with heat pumps and split systems where no furnace is present. Contains evaporator coil, blower, and optional electric heat strips. Acts as both cooling air mover and primary/auxiliary heat source on heat pump systems.",
+      "uniqueComponents": [
+        "Evaporator coil (A-coil, slab, or N-coil)",
+        "Blower motor (PSC, X13, or ECM/variable speed)",
+        "Electric resistance heat strips (5-25 kW typical)",
+        "Heat strip sequencer or contactor(s)",
+        "Auxiliary limit switch on heat strips",
+        "Air handler control board (AHCB)",
+        "Condensate drain pan (primary + secondary on attic units)",
+        "Float safety switch on secondary pan",
+        "TXV or piston metering device",
+        "Optional humidifier/UV light/MERV filter rack connections"
+      ],
+      "commonConfigurations": [
+        "1.5-5 ton residential",
+        "Multi-position: upflow, downflow, horizontal left, horizontal right",
+        "Heat strip kits: 5, 7.5, 10, 15, 20, 25 kW (sized to backup heat pump capacity at design temp)",
+        "ECM motors with multi-speed taps for cooling/heating/continuous fan",
+        "TXV (most common) or piston for budget/older units",
+        "Cased coil + matched blower section, or all-in-one cabinet"
+      ],
+      "topFailures": [
+        "ECM motor module failure (electronic module on motor body — replace module separately, not full motor)",
+        "Heat strip element burnout (one element opens, reduces capacity but unit still runs on remaining elements)",
+        "Heat strip sequencer stuck closed (strips run when not called) or open (no aux heat)",
+        "Clogged condensate drain — float switch trips, system shuts down",
+        "Frozen evaporator coil from low airflow or low refrigerant charge",
+        "TXV sensing bulb lost charge (high superheat, low cooling capacity)",
+        "Blower wheel coated with debris (vibration, noise, reduced CFM)",
+        "Float switch failure (false trips or fails to trip during actual overflow)"
+      ],
+      "seasonalIssues": {
+        "spring": "Inspect drain pan and primary/secondary drain lines — flush with vinegar, check float switches by lifting float manually, verify drain slope 1/8 inch per foot minimum.",
+        "summer": "Condensate drain failures most common service call. Frozen coils from dirty filters. Attic AHUs run very hot — check for rodent damage to wiring.",
+        "fall": "Test heat strips before heating season — pull amp draw on each element with clamp meter. Verify sequencer staging.",
+        "winter": "Heat strips cycling excessively = heat pump not keeping up. Check balance point setting on thermostat. Aux heat lockout temperature setting."
+      },
+      "criticalMeasurements": {
+        "deltaTCooling": "16-22°F across evaporator coil",
+        "deltaTHeatStrips": "Calculated: Rise (°F) = (kW × 3413) / (1.08 × CFM). Example: 10 kW at 1200 CFM = 26°F rise",
+        "heatStripAmpDraw": "Each 5 kW element draws approximately 21 amps at 240V. Total amps = sum of all energized elements + blower amps.",
+        "totalExternalStaticPressure": "0.5 inches WC nominal residential, do not exceed 0.8 inches WC",
+        "supplyAirTempHeatStrips": "Typically 95-130°F depending on kW and airflow"
+      },
+      "diagnosticDifferences": [
+        "ECM motors do not respond to capacitor testing — they have onboard electronics, test with motor-specific procedures or substitute test motor",
+        "Heat strips on heat pump only run as auxiliary/emergency — check thermostat config (balance point, lockout temp) before condemning strips",
+        "Multi-stage heat strips stage on sequencer with 15-60 sec delays between stages — verify staging with amp clamp",
+        "Float switch in secondary pan opens 24V circuit — no cooling complaint with normal refrigerant pressures often means float tripped",
+        "Variable-speed ECM blowers self-adjust to maintain CFM against static — high static hides itself in CFM but shows up as elevated motor amp draw and noise"
+      ]
+    },
+    "Geothermal Heat Pump": {
+      "description": "Heat pump that exchanges heat with the earth or groundwater instead of outdoor air. Typically 3-5x more efficient than air-source heat pumps. Loop fluid (water or water/antifreeze mix) circulates between earth loop and refrigerant-to-water heat exchanger inside the unit.",
+      "uniqueComponents": [
+        "Refrigerant-to-water coaxial or brazed-plate heat exchanger (source side)",
+        "Refrigerant-to-air heat exchanger or hydronic coil (load side)",
+        "Loop circulator pump(s) — flow center with isolation valves",
+        "Water flow switch (prevents compressor operation without loop flow)",
+        "Loop pressure gauge and purge ports",
+        "Reversing valve (water-to-air heat pumps)",
+        "Desuperheater coil for domestic hot water preheat (optional)",
+        "Antifreeze solution — methanol, ethanol, or propylene glycol depending on climate and code",
+        "HDPE loop piping (closed loop) or pump-and-dump well assembly (open loop)"
+      ],
+      "commonConfigurations": [
+        "Closed loop horizontal: 4-6 ft deep trenches, 300-600 ft per ton, most common residential",
+        "Closed loop vertical: 150-450 ft deep boreholes, 150-200 ft per ton, limited land area",
+        "Pond/lake loop: submerged HDPE pipe coils, requires 8 ft minimum depth and adequate volume",
+        "Open loop (pump-and-dump): well water in, discharged to second well or surface, requires excellent water quality",
+        "Capacity: 2-6 ton residential, larger for commercial",
+        "Refrigerant: R-410A primary, R-32 in newer equipment"
+      ],
+      "topFailures": [
+        "Loop pressure loss (leak in pipe, fittings, or flow center — may be slow)",
+        "Air entrained in loop (causes pump cavitation, reduced flow, noise, compressor trips)",
+        "Loop pump (circulator) failure or seized impeller",
+        "Fouled coaxial heat exchanger (open loop with mineral deposits or iron bacteria)",
+        "Low charge on refrigerant side (same as air-source, just harder to diagnose with water temps)",
+        "Antifreeze concentration too low (winter freeze risk) or too high (reduced heat transfer)",
+        "Open loop: pump-and-dump well pump failure, biofouling, iron scale",
+        "Desuperheater check valve stuck (DHW tank cold or refrigerant migration)"
+      ],
+      "seasonalIssues": {
+        "spring": "Verify loop pressure stable after winter ground contraction. Top off if needed with same antifreeze solution. Inspect flow center for leaks.",
+        "summer": "Load on cooling — entering water temperature climbs as season progresses. Marginal loops show capacity loss in August. Open loop wells: monitor flow rate and water quality.",
+        "fall": "Pre-heating-season check: loop pressure, antifreeze freeze point with refractometer, pump amp draw, entering water temp baseline.",
+        "winter": "Entering water temp can drop to 25-35°F on undersized loops. Compressor low suction trips if loop frozen or flow too low. Antifreeze critical — test freeze point annually."
+      },
+      "criticalMeasurements": {
+        "enteringWaterTemp": "Closed loop heating: 25-50°F. Closed loop cooling: 60-90°F. Open loop: typically 50-60°F year-round.",
+        "leavingWaterTemp": "5-12°F differential from entering water temp typical",
+        "loopFlowRate": "3 GPM per ton minimum, target 3-4 GPM per ton closed loop",
+        "loopPressure": "Static: 30-50 psig typical residential",
+        "loopFreezePoint": "20°F below lowest expected entering water temp — typically -5°F to 15°F depending on climate",
+        "copHeating": "3.5-4.5 typical (vs 2.5-3.5 for air-source)"
+      },
+      "diagnosticDifferences": [
+        "Charging and diagnostics use entering water temp instead of outdoor ambient — manufacturer charts based on water temps",
+        "Symptoms of loop problems mimic refrigerant problems — ALWAYS verify loop flow and entering water temp before touching refrigerant",
+        "Flow proving required: most units have flow switch or pressure differential sensor that locks out compressor on low flow",
+        "Open loop water quality drives reliability — hardness, iron, pH, bacteria all foul heat exchanger. Annual flush often required.",
+        "Loop purging: must achieve 2-3 ft per second velocity to flush air — requires high-flow purge cart",
+        "Loop pressure tests: 100 psig hold for 30 min on closed loop after install, recheck annually"
+      ]
+    },
+    "VRF System (Variable Refrigerant Flow)": {
+      "description": "Multi-zone commercial/light-commercial heat pump using refrigerant as the only working fluid distributed to multiple indoor units. Variable-speed inverter compressor modulates capacity 10-100%. Heat recovery (3-pipe) versions can simultaneously heat and cool different zones. Major brands: Mitsubishi City Multi, Daikin VRV, LG Multi V, Samsung, Fujitsu.",
+      "uniqueComponents": [
+        "Inverter scroll compressor(s) — typically 2 in larger units for redundancy",
+        "Branch selector boxes / branch controllers (3-pipe heat recovery only)",
+        "Multiple electronic expansion valves (one per indoor unit plus system EEVs)",
+        "Refrigerant oil separator and oil management system",
+        "High-side accumulator",
+        "Multiple solenoid valves for mode switching",
+        "Proprietary communication network: M-Net (Mitsubishi), F1/F2 (Daikin)",
+        "Indoor units: ducted, cassette, wall-mount, floor console, ceiling-suspended"
+      ],
+      "commonConfigurations": [
+        "2-pipe heat pump (cool OR heat, all zones same mode)",
+        "3-pipe heat recovery (simultaneous heat and cool different zones — VRF signature feature)",
+        "Outdoor capacity: 6-30 tons single condenser, modular up to 60+ tons",
+        "Up to 64 indoor units per outdoor on large systems",
+        "Refrigerant piping runs up to 1000 ft total (varies by brand)",
+        "R-410A primary, R-32 in newer equipment",
+        "Indoor capacity ratio: 50-150% of outdoor allowed"
+      ],
+      "topFailures": [
+        "Refrigerant leak in long pipe runs — large charges (50-200+ lbs), hardest to find",
+        "Communication errors between outdoor, branch boxes, indoor units — wiring polarity and terminations",
+        "EEV stepper motor failure on any of dozens of expansion valves in system",
+        "Branch selector solenoid valve failure — stuck mode, hot/cold complaints",
+        "Inverter board failure (PCB) — very expensive, requires brand-specific replacement",
+        "Oil return problems on long vertical risers — undersized lines or missing oil traps",
+        "Field commissioning errors — more failures from bad installation than equipment defects"
+      ],
+      "seasonalIssues": {
+        "spring": "Shoulder season heat-recovery testing — verify mode switching as different zones call heating and cooling simultaneously.",
+        "summer": "Peak cooling — oil return critical at full load. Check discharge superheat.",
+        "fall": "Heating season prep — test heating mode in all zones. Defrost cycles begin.",
+        "winter": "Defrost and low-ambient operation. Some VRF systems lose capacity below 0°F unless cold-climate rated (vapor injection technology)."
+      },
+      "criticalMeasurements": {
+        "refrigerantCharge": "Per manufacturer calculation: base charge + (length × per-foot factor) for each pipe size. Must be weighed in precisely — 5% variance causes performance issues.",
+        "subcoolingDischarge": "Manufacturer-specific — typically 15-25°F at outdoor unit liquid line",
+        "dischargePressureR410A": "350-450 psig depending on conditions and load",
+        "dischargeTemp": "180-220°F normal. Above 230°F = compressor protection trip imminent.",
+        "communicationVoltage": "DC voltage between communication terminals: typically 10-30 VDC pulsing (brand-specific)",
+        "pipeSizingVerification": "Liquid lines: 3/8 to 1-1/8 inch. Suction/discharge: 1/2 to 1-5/8 inch. Must match design — undersized causes oil return failure.",
+        "heightDifferential": "Outdoor above indoors: max 110-165 ft typical. Indoor to indoor: max 49 ft typical. Brand-specific limits."
+      },
+      "diagnosticDifferences": [
+        "Always start at the manufacturer's service tool/laptop interface — reveals error history, EEV positions, sensor temps for all units simultaneously",
+        "Each manufacturer has proprietary diagnostic software (Mitsubishi MN Converter, Daikin Service Checker, LG LGMV) — you cannot properly service VRF without it",
+        "Heat recovery vs heat pump: 3-pipe systems have branch selector boxes between outdoor and indoors. 2-pipe systems do not.",
+        "Refrigerant charge calculation must be documented and posted on outdoor unit — service tech needs this for any subsequent work",
+        "Pump-down for VRF service: cannot pump down to outdoor unit like split system — must recover to cylinders or use isolation valves at each indoor unit",
+        "Commissioning is critical — improper line sizing, missing oil traps, incomplete leak test cause years of chronic issues",
+        "A2L refrigerant (R-32) charge-to-room-volume safety calculation required — smallest indoor unit space must be adequate for system charge volume"
       ]
     }
   }

@@ -1,12 +1,16 @@
 {
   "category": "diagnostic-procedures",
   "title": "HVAC Diagnostic Procedures & Measurement Standards",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "procedures": [
     {
       "id": "dp-001",
       "title": "Superheat Method (Fixed Orifice / Piston Systems)",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit"
+      ],
       "purpose": "Verify refrigerant charge on systems with fixed metering device",
       "steps": [
         "System must run at least 15 minutes before taking readings",
@@ -19,15 +23,28 @@
         "Generic targets: 10-18°F superheat (varies with outdoor temp)"
       ],
       "targetRanges": {
-        "R-410A": { "target": "10-18°F", "lowCharge": "> 20°F", "overcharge": "< 5°F" },
-        "R-22": { "target": "10-18°F", "lowCharge": "> 20°F", "overcharge": "< 5°F" }
+        "R-410A": {
+          "target": "10-18°F",
+          "lowCharge": "> 20°F",
+          "overcharge": "< 5°F"
+        },
+        "R-22": {
+          "target": "10-18°F",
+          "lowCharge": "> 20°F",
+          "overcharge": "< 5°F"
+        }
       },
       "notes": "This method ONLY works for fixed orifice/piston systems. For TXV systems, use the subcooling method."
     },
     {
       "id": "dp-002",
       "title": "Subcooling Method (TXV Systems)",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split"
+      ],
       "purpose": "Verify refrigerant charge on systems with TXV metering",
       "steps": [
         "System must run at least 15 minutes",
@@ -38,15 +55,28 @@
         "Compare to manufacturer spec (typically on nameplate or service manual)"
       ],
       "targetRanges": {
-        "R-410A": { "target": "10-15°F", "lowCharge": "< 5°F", "overcharge": "> 20°F" },
-        "R-22": { "target": "10-15°F", "lowCharge": "< 5°F", "overcharge": "> 20°F" }
+        "R-410A": {
+          "target": "10-15°F",
+          "lowCharge": "< 5°F",
+          "overcharge": "> 20°F"
+        },
+        "R-22": {
+          "target": "10-15°F",
+          "lowCharge": "< 5°F",
+          "overcharge": "> 20°F"
+        }
       },
       "notes": "TXV maintains constant superheat, so subcooling is the only reliable charge indicator for TXV systems."
     },
     {
       "id": "dp-003",
       "title": "Compressor Electrical Testing",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "RTU (Rooftop)"
+      ],
       "purpose": "Determine if compressor windings are healthy",
       "steps": [
         "Disconnect all power and lock out",
@@ -71,7 +101,12 @@
     {
       "id": "dp-004",
       "title": "Airflow Verification",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "RTU (Rooftop)"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "RTU (Rooftop)"
+      ],
       "purpose": "Verify proper indoor airflow for correct system operation",
       "steps": [
         "Standard airflow: 400 CFM per ton of cooling (±10%)",
@@ -85,14 +120,30 @@
         "If possible, measure airflow at supply registers and sum"
       ],
       "troubleshooting": {
-        "highStaticPressure": ["Dirty filter", "Undersized ductwork", "Collapsed flex duct", "Too many closed registers", "Dirty evap coil"],
-        "lowStaticPressure": ["Duct leaks", "Return air leak at air handler", "Missing filter (air bypassing)"]
+        "highStaticPressure": [
+          "Dirty filter",
+          "Undersized ductwork",
+          "Collapsed flex duct",
+          "Too many closed registers",
+          "Dirty evap coil"
+        ],
+        "lowStaticPressure": [
+          "Duct leaks",
+          "Return air leak at air handler",
+          "Missing filter (air bypassing)"
+        ]
       }
     },
     {
       "id": "dp-005",
       "title": "Electrical Supply Verification",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
       "purpose": "Verify proper voltage supply to equipment",
       "steps": [
         "Check voltage at disconnect: L1-L2 should be within ±10% of nameplate",
@@ -114,7 +165,13 @@
     {
       "id": "dp-006",
       "title": "Refrigerant Leak Detection",
-      "applicableTo": ["Split System A/C", "Heat Pump", "Package Unit", "Mini-Split", "RTU (Rooftop)"],
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)"
+      ],
       "purpose": "Locate refrigerant leaks systematically",
       "steps": [
         "Check service valve caps and Schrader cores first (most common leak points)",
@@ -135,6 +192,313 @@
         "Flare connections at line set - 10%",
         "Factory defect in coil - 5%",
         "Line set rub-through - 5%"
+      ]
+    },
+    {
+      "id": "dp-007",
+      "title": "Furnace Sequence of Operation Diagnostic",
+      "applicableTo": [
+        "Gas Furnace"
+      ],
+      "purpose": "Systematically diagnose any no-heat or intermittent-heat furnace fault by following the heating sequence and identifying which stage fails",
+      "steps": [
+        "Read IFC board flash code FIRST — most boards flash a fault code that directly identifies which stage failed",
+        "STAGE 0 - Power and call: Verify 120V at furnace, 24VAC between R and C on board, then 24VAC at W when thermostat calls. No 24V = transformer, control board, or thermostat issue.",
+        "STAGE 1 - Inducer start: When W energized, IFC should energize inducer immediately. No inducer = check IFC inducer relay, inducer winding (typically 5-20 ohms), capacitor on PSC inducers, line voltage to inducer.",
+        "STAGE 2 - Pressure switch close: Inducer creates negative pressure; pressure switch contacts close within 10-20 seconds. Test by jumping PS terminals (diagnostic only, never permanent). If jumping makes it work: blocked vent, full condensate trap, collapsed hose, weak inducer, or bad switch. Measure inducer suction with manometer (-0.4 to -1.5 inches WC typical).",
+        "STAGE 3 - Ignitor warmup: Pressure switch proven, IFC sends 120V to HSI for 15-45 seconds. Visual: HSI should glow bright orange/white. Ohm test cold HSI: 50-200 ohms typical silicon nitride. Open circuit = replace. Visible cracks = replace.",
+        "STAGE 4 - Gas valve open: After HSI warmup, IFC sends 24VAC to gas valve MV terminal. Listen/feel for click. Verify 24VAC at valve terminals while energized. Manifold pressure should rise to 3.5 inches WC NG (10-11 inches WC LP). No gas at burners = bad valve coil (ohm test 30-80 ohms), wiring, or upstream gas supply issue.",
+        "STAGE 5 - Ignition: Burners should ignite from HSI within 1-3 seconds of gas valve opening. Watch flame pattern through inspection port — should be blue with light yellow tips, engulfing flame sensor.",
+        "STAGE 6 - Flame proving: Flame sensor produces DC microamp signal via flame rectification. IFC must see signal within 4-7 second trial. Measure with DC microamp meter in series with sensor wire: 2-6 µA healthy, below 1 µA = clean sensor with fine emery cloth. If clean sensor still low: ground path issue, cracked porcelain, or weak flame.",
+        "STAGE 7 - Flame established: Once flame proven, IFC de-energizes HSI. If IFC keeps re-trying: flame signal dropping out intermittently.",
+        "STAGE 8 - Blower delay and start: After 30-90 second delay, blower energizes on heat speed. Verify blower runs at correct speed tap. ECM blowers ramp up over 30-60 sec.",
+        "STAGE 9 - Steady-state run: Monitor manifold pressure, temperature rise (within nameplate range), flame signal, all limits. Rise too high = airflow issue. Rise too low = overfired or low gas pressure.",
+        "STAGE 10 - Safety limits: High limit (160-200°F) opens on overheat. Rollout switches (manual reset, 300°F+) trip on flame escaping burner box — investigate thoroughly, never just reset without finding cause.",
+        "STAGE 11 - Cycle off: Thermostat satisfied, gas valve closes, inducer post-purges 15-30 sec, blower runs off-delay 60-180 sec"
+      ],
+      "targetRanges": {
+        "manifoldGasPressureNG": "3.5 inches WC single-stage, 1.7/3.5 inches WC two-stage",
+        "manifoldGasPressureLP": "10-11 inches WC",
+        "inletGasPressureNG": "5-10.5 inches WC static, minimum 5 inches WC under full load",
+        "flameSignal": "2-6 µA DC (typical lockout below 0.7 µA)",
+        "tempRise": "Per nameplate, typically 35-65°F",
+        "ignitorOhms": "50-200 ohms cold (silicon nitride HSI)",
+        "gasValveCoilOhms": "30-80 ohms (24VAC coil)",
+        "pressureSwitchSetpoint": "0.4-1.5 inches WC vacuum (per label on switch)",
+        "coAirFreeFlue": "Below 100 ppm air-free. Above 400 ppm = service required.",
+        "coSupplyAir": "0 ppm — any reading = cracked heat exchanger, shut down immediately"
+      },
+      "notes": "Always read board flash code first — it tells you which stage failed. Document gas pressure, temp rise, flame signal, and combustion analysis on every furnace service. Never bypass safety switches.",
+      "commonMistakes": [
+        "Bypassing pressure switch permanently — it protects against blocked vent and CO buildup",
+        "Replacing ignitor without checking why it failed (water from drain, voltage issues, vibration, handling with bare hands)",
+        "Cleaning flame sensor with sandpaper (leaves grit that re-coats sensor) — use fine emery cloth only",
+        "Resetting rollout switch without finding root cause — clogged heat exchanger, blocked flue, severe overfire",
+        "Skipping combustion analysis — CO levels are invisible without it"
+      ]
+    },
+    {
+      "id": "dp-008",
+      "title": "Heat Pump Defrost Diagnostic",
+      "applicableTo": [
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split"
+      ],
+      "purpose": "Diagnose heat pump defrost system failures — frosted/iced outdoor coil, no defrost, or excessive defrost cycling in heating mode",
+      "steps": [
+        "Verify ice condition: light frost is normal in heating mode. Heavy ice over 50% of coil area or solid sheet of ice = defrost failure.",
+        "Check defrost initiation conditions: outdoor coil temp must be at or below 30°F AND time between defrosts has elapsed (30/60/90 min selectable on most boards) AND compressor must be running.",
+        "Locate defrost board in outdoor unit control box — identify timer selection jumper (T1/T2) and forced defrost test pads.",
+        "Force a defrost: short the test pins on the board with a small jumper (board manufacturer-specific). System should enter defrost within seconds if board is functioning.",
+        "Defrost sequence verification: (1) reversing valve energizes and shifts to cooling mode, (2) outdoor fan STOPS, (3) compressor continues running, (4) auxiliary heat strips energize at indoor unit (prevents cold draft indoors).",
+        "Defrost termination: ends when defrost thermostat opens (coil reaches ~60-80°F) OR 10-minute time-out, whichever comes first.",
+        "Test defrost thermostat: clip-on bimetal type — should be closed (continuity) below 32°F, open above ~60-80°F. Test with ohmmeter at ambient temperature.",
+        "Test reversing valve solenoid coil: ohm test 7-15 ohms typical (24VAC coil). Listen/feel for click when solenoid energizes and de-energizes.",
+        "Test reversing valve slide: with system in heat, discharge line to indoor coil should be very hot (180-220°F). When defrost initiates, that line goes cool and outdoor discharge line becomes hot.",
+        "If reversing valve solenoid clicks but valve does not shift: stuck slider valve. Tap firmly with rubber mallet during mode change while unit running. If still stuck: replace valve.",
+        "Verify outdoor fan STOPS during defrost — if fan runs continuously, defrost is ineffective (cold air keeps coil frozen).",
+        "Verify auxiliary heat (W2) energizes during defrost — prevents cold air complaints from occupants."
+      ],
+      "targetRanges": {
+        "defrostInterval": "30, 60, or 90 minutes between defrosts (jumper-selectable on control board)",
+        "defrostDuration": "2-10 minutes typical (terminates on coil temperature or time limit)",
+        "defrostThermostatClose": "Approximately 32°F (coil temperature)",
+        "defrostThermostatOpen": "60-80°F (coil temperature — ends defrost)",
+        "reversingValveCoilOhms": "7-15 ohms typical (24VAC)",
+        "outdoorCoilTempInHeat": "Should be 10-25°F below outdoor ambient when running in heat mode"
+      },
+      "notes": "Demand defrost boards (newer units) use both temperature sensors and pressure differential or runtime to decide when to defrost — more efficient than time/temp boards. Mini-splits handle defrost via main control board with no separate defrost board — check error codes on indoor display.",
+      "commonMistakes": [
+        "Replacing defrost board when defrost sensor was actually failed — sensor is much cheaper",
+        "Wrong jumper settings on universal replacement board — causes too-frequent or no defrosts",
+        "Misreading normal thin frost as defrost board failure — uniform frost is expected in heat mode",
+        "Forgetting to verify outdoor fan stops during defrost — common board relay failure",
+        "Not checking that auxiliary heat energizes during defrost — cold draft complaint is often W2 not engaging"
+      ]
+    },
+    {
+      "id": "dp-009",
+      "title": "Total External Static Pressure Measurement",
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Air Handler (AHU)",
+        "Gas Furnace",
+        "RTU (Rooftop)"
+      ],
+      "purpose": "Measure total external static pressure (TESP) to diagnose airflow problems, blower stress, and duct system issues",
+      "steps": [
+        "Tools required: digital manometer, drill with 3/16 or 1/4 inch bit, static pressure tip probes, foam plugs to seal test holes.",
+        "Run blower at full cooling speed (or heating speed for furnace tests) for at least 5 minutes to stabilize before reading.",
+        "Reading 1 - SUPPLY: Drill test port in supply plenum AFTER the cooling coil and AFTER any heat strip section, before first branch takeoff. Insert static probe pointing upstream. Record positive pressure (e.g., +0.32 inches WC).",
+        "Reading 2 - RETURN: Drill test port in return plenum BEFORE the filter, before the coil. Insert probe pointing downstream (toward blower). Record negative pressure (e.g., -0.18 inches WC).",
+        "Calculate TESP = absolute value of supply pressure + absolute value of return pressure. Example: 0.32 + 0.18 = 0.50 inches WC.",
+        "Compare to equipment nameplate: most residential rated 0.5 inches WC. Premium ECM equipment up to 0.8 inches WC. RTUs vary 1.0-2.0 inches WC.",
+        "Reading 3 - FILTER DROP: Measure pressure drop across filter only. Should be less than 0.10 inches WC new 1-inch pleated filter. Above 0.20 inches WC = replace filter.",
+        "Reading 4 - COIL DROP: Measure pressure drop across evaporator coil only. Clean dry coil: 0.10-0.25 inches WC. Wet coil: 0.20-0.35 inches WC. Above 0.40 inches WC = dirty coil.",
+        "Plug all drilled test holes with foam plugs or self-adhesive foam tape.",
+        "If TESP exceeds nameplate: investigate root causes (dirty filter, undersized ducts, closed registers, dirty coil, collapsed flex duct)."
+      ],
+      "targetRanges": {
+        "residentialTESP": "0.5 inches WC nominal, do not exceed nameplate (typically 0.5-0.8 inches WC)",
+        "filterDropNew1inch": "Less than 0.10 inches WC for new 1-inch pleated filter",
+        "filterDropReplace": "Replace when drop exceeds 0.20 inches WC across same filter",
+        "evapCoilDropCleanDry": "0.10-0.25 inches WC",
+        "evapCoilDropWet": "0.20-0.35 inches WC",
+        "rtuCommercial": "1.0-2.0 inches WC TESP typical"
+      },
+      "notes": "Always note blower speed setting — many residential systems shipped on lowest tap. ECM blowers compensate for static by increasing power — high static can hide itself in CFM but shows up as elevated motor amp draw and noise. Record all readings for service history comparison.",
+      "commonMistakes": [
+        "Not running blower long enough before reading — airflow not fully stabilized",
+        "Drilling test port in wrong location (before coil on supply side, or after filter on return side) — gives incorrect TESP",
+        "Probing perpendicular to airflow instead of parallel — velocity pressure adds error to static reading",
+        "Forgetting to plug test holes after measurement — permanent air leak in duct system",
+        "Comparing to generic 0.5 inches WC rule without checking actual nameplate rating",
+        "Missing that high static plus low amp draw means airflow blocked downstream of the measurement point"
+      ]
+    },
+    {
+      "id": "dp-010",
+      "title": "Mini-Split Commissioning & Error Code Diagnostic",
+      "applicableTo": [
+        "Mini-Split"
+      ],
+      "purpose": "Properly commission a new mini-split installation and diagnose error codes from indoor unit display",
+      "steps": [
+        "PRE-STARTUP CHECKLIST:",
+        "1. Verify line set length within manufacturer spec (typical 25 ft pre-charged, max 50-100 ft depending on brand with added refrigerant per ft)",
+        "2. Verify height differential within spec (typical max indoor above outdoor 24-49 ft, outdoor above indoor 24 ft — brand-specific)",
+        "3. Inspect flares: 45 degree angle, smooth, no cracks, proper torque per OEM torque table",
+        "4. Confirm line set insulation continuous, no compression, vapor barrier sealed",
+        "5. Verify drain line slope minimum 1/4 inch per foot, terminated appropriately",
+        "6. Confirm communication wire correct gauge (typically 14 AWG stranded shielded), polarity verified (most brands polarity-sensitive)",
+        "7. Confirm disconnect within sight of outdoor unit, properly sized breaker per nameplate MOCP",
+        "STARTUP PROCEDURE:",
+        "1. Pressure test line set and indoor coil with dry nitrogen to manufacturer spec (typically 550 psig for R-410A) for minimum 60 minutes — watch for any pressure drop",
+        "2. Evacuate line set and indoor coil to 500 microns or lower — measure with micron gauge at far end of line set, not at pump",
+        "3. Standing vacuum test: isolate from pump, vacuum must hold below 1000 microns for 15 minutes minimum",
+        "4. Open service valves at outdoor unit — first liquid (small valve), then suction (large valve) — using correct hex key, fully counter-clockwise to backseat",
+        "5. Add additional refrigerant if line set exceeds pre-charged length (per OEM g/m or oz/ft specification)",
+        "6. Apply power — allow standby time per manual (typically 12 hours crankcase heater warmup on initial startup; 1 hour minimum)",
+        "7. Start in cooling mode, let inverter ramp up over 2-5 minutes",
+        "8. Verify: outdoor fan running, indoor fan running, supply temp dropping in cooling, compressor amp draw within range",
+        "9. Run minimum 30 minutes then verify pressures, temperatures, and document all readings",
+        "ERROR CODE DIAGNOSTIC:",
+        "1. Note exact code displayed — format varies by brand",
+        "2. Power-cycle once to clear soft faults (some codes are latching, others self-clear)",
+        "3. Consult brand-specific code chart — codes are very specific, do not guess",
+        "4. Common code categories: communication (wiring/polarity), sensor (thermistor open/short), refrigerant (low pressure/high pressure/discharge temp), compressor (overcurrent/position error), EEV (stepper feedback)",
+        "5. Use manufacturer service tool or app if available — reveals live operating data, sensor values, compressor frequency"
+      ],
+      "commonErrorCodesByBrand": {
+        "Mitsubishi": {
+          "P5": "Drain pump or drain overflow",
+          "P6": "Coil frost protection (low coil temperature)",
+          "P8": "Outdoor coil temperature sensor",
+          "U2": "High discharge temperature or refrigerant shortage",
+          "U6": "Compressor overcurrent or lock",
+          "E6_E7": "Indoor-outdoor communication error"
+        },
+        "Daikin": {
+          "U0": "Refrigerant shortage or low pressure",
+          "U4": "Communication error indoor-outdoor",
+          "F3": "High discharge temperature",
+          "L5": "Compressor overcurrent",
+          "C9": "Suction temperature sensor error"
+        },
+        "LG": {
+          "CH05": "Communication error between indoor and outdoor",
+          "CH21": "High pressure or compressor overcurrent",
+          "CH38": "Outdoor temperature sensor fault",
+          "CH07": "Indoor unit mode mismatch on multi-zone system"
+        }
+      },
+      "targetRanges": {
+        "vacuumLevel": "500 microns or lower before opening service valves (300 microns preferred)",
+        "standingVacuumTest": "Holds below 1000 microns for 15 min after pump isolation",
+        "nitrogenPressureTest": "550 psig for R-410A for minimum 60 minutes",
+        "supplyAirCool": "55-62°F typical at full inverter demand",
+        "supplyAirHeat": "95-115°F typical at full inverter demand"
+      },
+      "commonMistakes": [
+        "Skipping nitrogen pressure test — missed flare leak causes charge loss within days",
+        "Cracking open service valve before evacuating — moisture and air contaminate system permanently",
+        "Reversed communication wire polarity — most brands refuse to operate, throws communication error",
+        "Using vacuum pump gauge to verify micron level instead of proper micron gauge — wildly inaccurate",
+        "Not allowing crankcase heater warmup before first start in cold ambient — flooded compressor startup failure",
+        "Replacing parts based on guessing — mini-split error codes are precise, always look up the specific code"
+      ]
+    },
+    {
+      "id": "dp-011",
+      "title": "Condenser and Evaporator Coil Cleaning Procedure",
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)",
+        "Air Handler (AHU)"
+      ],
+      "purpose": "Properly clean fouled coils to restore heat transfer without damaging fins, copper, or aluminum",
+      "steps": [
+        "Pre-cleaning assessment: visually inspect coil for fin density (FPI), existing damage, and foulant type (cottonwood, dust, grass clippings, grease, biological growth). Choose chemical accordingly.",
+        "Disconnect and lock out power at disconnect before any wet cleaning.",
+        "Cover all electrical components, motors, contactors, and control boards with plastic to prevent water and chemical intrusion.",
+        "CONDENSER (outdoor) coil cleaning:",
+        "1. Remove top grille and fan assembly to gain access for inside-out cleaning.",
+        "2. Pre-rinse with garden hose at normal household pressure — NEVER use pressure washer (bends fins, damages protective coating, drives debris deeper into coil).",
+        "3. Apply alkaline cleaner (pH 9-12) such as Nu-Calgon CalClean for normal dirt and grease — foaming type recommended.",
+        "4. Allow dwell time per product label (5-10 min typical) — do not let cleaner dry on coil.",
+        "5. Rinse from INSIDE-OUT through the coil with garden hose, top to bottom, until water runs completely clear.",
+        "6. NEVER use acid cleaner on outdoor coil — will pit aluminum and corrode copper-to-aluminum connections.",
+        "EVAPORATOR (indoor) coil cleaning:",
+        "1. Access via coil access panel — remove screws, may need to cut and reseal duct mastic.",
+        "2. For light biofilm: use no-rinse evaporator coil cleaner (foaming alkaline, self-rinsing via condensate drain) — apply, let soak, condensate drain washes residue out.",
+        "3. For heavy fouling: alkaline cleaner with garden hose rinse (same as condenser procedure).",
+        "4. NEVER use acid cleaner on evaporator coil — attacks aluminum fins and copper tubes.",
+        "5. Flush drain pan and drain line after coil cleaning — vacuum trap, flush with vinegar/water mix.",
+        "MICROCHANNEL coil special instructions:",
+        "1. Microchannel (MCHX) coils are aluminum throughout — alkaline cleaner only, never acid cleaner.",
+        "2. Garden hose pressure only — fins damage more easily than traditional fin-and-tube.",
+        "3. Do not use fin combs on MCHX — flat aluminum channels cannot be combed.",
+        "FIN STRAIGHTENING (traditional fin-and-tube only):",
+        "1. Use fin comb sized to coil FPI (count fins per inch first — residential typically 10-15 FPI).",
+        "2. Comb gently in direction of fin orientation, never across fins.",
+        "3. More than 30% fin damage: replacement is more cost-effective than cleaning."
+      ],
+      "targetRanges": {
+        "rinseWaterPressure": "Garden hose only, approximately 40-60 psi — never pressure washer",
+        "cleanerPHAlkaline": "pH 9-12 (safe for aluminum fins and copper tubes)",
+        "cleanerPHAcid": "pH 1-3 (ONLY for specific copper fin-and-tube outdoor coils with manufacturer approval — NEVER on aluminum MCHX)",
+        "dwellTime": "5-10 min typical per product label",
+        "deltaTImprovementAfterClean": "Temperature split should improve 3-5°F after thorough coil cleaning"
+      },
+      "notes": "Document before and after temperatures and pressures to demonstrate service value. Microchannel coils are increasingly common on outdoor units — always identify coil type before selecting cleaning method.",
+      "commonMistakes": [
+        "Using pressure washer — permanently bends fins, voids warranty, drives debris deeper",
+        "Using acid cleaner on aluminum microchannel coil — destroys coil within months",
+        "Spraying cleaner from outside-in instead of inside-out on condenser — pushes debris into coil core",
+        "Not covering electrical components before wet cleaning — moisture damages contactors and PCBs",
+        "Letting cleaner dry on coil — leaves stains and residue that continue corroding",
+        "Not addressing why coil was dirty (vegetation too close, no protective screen, dryer vent nearby)"
+      ]
+    },
+    {
+      "id": "dp-012",
+      "title": "System Evacuation and Vacuum Verification",
+      "applicableTo": [
+        "Split System A/C",
+        "Heat Pump",
+        "Package Unit",
+        "Mini-Split",
+        "RTU (Rooftop)",
+        "VRF System (Variable Refrigerant Flow)"
+      ],
+      "purpose": "Properly evacuate refrigerant system to remove non-condensables and moisture, then verify with micron gauge before charging",
+      "steps": [
+        "Tools required: 6 CFM minimum two-stage vacuum pump (8 CFM preferred for 3+ ton), large-bore vacuum-rated hoses (1/2 or 3/8 inch ID — NOT standard 1/4 inch charging hoses), digital micron gauge (thermistor-based), Schrader core removal tools, fresh vacuum pump oil.",
+        "Pre-evacuation: confirm leak is repaired (nitrogen pressure test held). Replace filter drier — new drier is critical for moisture control.",
+        "Remove BOTH Schrader cores using core remover tool — cores create major restriction, evacuating through them takes 5x longer.",
+        "Connect pump and micron gauge to OPPOSITE ends of system if possible — micron gauge on indoor service port, pump on outdoor. NEVER measure microns at pump — reads false low.",
+        "Verify vacuum pump oil is clean and full. Open ballast valve initially (1-5 minutes) to purge moisture from oil, then close.",
+        "Pull vacuum to 500 microns minimum (300 microns preferred, especially for R-410A POE systems).",
+        "TRIPLE EVACUATION METHOD (best practice for moisture-contaminated systems):",
+        "1st pull: vacuum to 1500 microns, isolate pump, break vacuum with dry nitrogen to 2-5 psig",
+        "2nd pull: vacuum to 1000 microns, isolate, break with dry nitrogen to 2-5 psig",
+        "3rd pull: vacuum to 500 microns or below",
+        "DECAY TEST (standing vacuum hold test):",
+        "1. Pull system to 500 microns or lower",
+        "2. Isolate pump from system (close valve between pump and manifold — do NOT shut off pump)",
+        "3. Watch micron gauge for 15-30 minutes",
+        "INTERPRETATION:",
+        "Holds below 1000 microns = system dry, no leak, ready to charge",
+        "Rises slowly past 2000 microns and keeps climbing = moisture still boiling off (re-evacuate longer)",
+        "Rises rapidly past 5000 microns or returns toward atmospheric = leak (find and repair before charging)",
+        "Stabilizes at 2000-4000 microns = marginal moisture, acceptable on some systems, re-evacuate for R-410A or VRF",
+        "Reinstall Schrader cores (with new gaskets) after decay test passes.",
+        "System ready for refrigerant charge."
+      ],
+      "targetRanges": {
+        "minimumVacuumR410A": "500 microns (300 microns preferred for POE systems)",
+        "minimumVacuumR22": "500 microns",
+        "minimumVacuumA2L": "500 microns minimum, 300 microns recommended",
+        "decayTestPass": "Holds below 1000 microns for 15 minutes after pump isolation",
+        "atmosphericPressure": "760,000 microns (760 mmHg) — we evacuate to 1500x lower",
+        "waterBoilingPoint": "Water boils at 75°F at approximately 22,500 microns — below this threshold water actively evaporates out of system during evacuation"
+      },
+      "notes": "Large-bore hoses make a 5-10x difference in evacuation time compared to 1/4-inch charging hoses. Change vacuum pump oil after every heavy moisture evacuation — contaminated oil cannot achieve deep vacuum. A slow decay (moisture) looks very different from a fast decay (leak) — learn to distinguish them.",
+      "commonMistakes": [
+        "Reading microns at pump rather than far end of system — drastically underestimates actual system vacuum level",
+        "Using 1/4-inch charging hoses for evacuation — massive restriction extends time by 5-10x",
+        "Leaving Schrader cores in during evacuation — reduces conductance by approximately 80%",
+        "Stopping at 2000 microns when it stops dropping — usually means moisture is boiling off, need more time or triple-evac",
+        "Not running decay test — confirms vacuum but does not verify seal integrity against leaks",
+        "Forgetting to change vacuum pump oil — contaminated oil cannot achieve 300-500 micron vacuum",
+        "Charging at 5000 microns as good enough — leads to acid formation, copper plating, and compressor failure within 1-3 years",
+        "Not replacing filter drier with every refrigerant circuit opening — drier holds moisture you thought you evacuated"
       ]
     }
   ]

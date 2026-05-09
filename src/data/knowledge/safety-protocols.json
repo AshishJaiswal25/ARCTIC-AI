@@ -1,7 +1,7 @@
 {
   "category": "safety-protocols",
   "title": "HVAC Safety Protocols & Compliance",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "protocols": [
     {
       "id": "sp-001",
@@ -56,6 +56,118 @@
         "Check heat exchanger for cracks: visual + carbon monoxide test in supply air",
         "CO level above 9 ppm in supply air = cracked heat exchanger = SHUT DOWN unit",
         "Never bypass safety switches (rollout, high limit, pressure switch)"
+      ]
+    },
+    {
+      "id": "sp-005",
+      "title": "A2L Refrigerant Safety (R-32, R-454B, R-1234yf)",
+      "category": "refrigerant",
+      "rules": [
+        "A2L classification = mildly flammable: lower flammability limit approximately 14% for R-32, 12% for R-454B — requires significant concentration in air to ignite",
+        "Burning velocity 10 cm/s or less (R-32: 6.7 cm/s, R-1234yf: 1.5 cm/s) — slow flame propagation, will not detonate",
+        "NO open flames, smoking, electrical sparks, or torches within 10 ft of refrigerant work area",
+        "Brazing on charged systems is PROHIBITED — always recover refrigerant first, purge with nitrogen during any brazing",
+        "Use ONLY A2L-rated tools: recovery machine (UL-listed for A2L), micron gauge with sealed electrical contacts, A2L-rated leak detector, manifold gauges with reverse-flow check valves",
+        "Standard halide leak detectors are NOT rated for A2L — illegal and unsafe to use on A2L refrigerants",
+        "Ventilation required when working in any enclosed space — mechanical ventilation if natural is insufficient",
+        "Do NOT work in below-grade spaces without forced ventilation — A2L refrigerants are heavier than air and accumulate at floor level",
+        "A2L equipment has charge limits per room volume per UL 60335-2-40 — smallest serviced room must be adequate for system charge weight",
+        "A2L equipment has built-in refrigerant leak detection sensors — DO NOT bypass. Sensor activates indoor blower to disperse any leak below flammable limit.",
+        "Recovery cylinders for A2L must be UL-listed specifically for A2L service",
+        "Emergency leak response: ventilate immediately, evacuate area, eliminate all ignition sources, do NOT operate any electrical switches in affected area until cleared",
+        "Personal protective equipment: safety glasses, cryogenic gloves, avoid synthetic clothing (static spark risk — use natural fibers or arc-rated)",
+        "Driver training and DOT requirements for transporting A2L cylinders in service vehicles",
+        "Document all A2L service per EPA Section 608 revised requirements including leak repair verification"
+      ]
+    },
+    {
+      "id": "sp-006",
+      "title": "Confined Space Entry",
+      "category": "confined_space",
+      "rules": [
+        "Confined space definition per OSHA 1910.146: large enough to enter and work, limited means of entry/egress, not designed for continuous occupancy. Includes crawl spaces, attic air handler compartments, mechanical rooms, boiler rooms, equipment vestibules.",
+        "Permit-required confined space (PRCS): contains or has potential to contain hazardous atmosphere, engulfment risk, configuration trap, or other recognized serious hazard. Requires written permit, attendant, atmospheric testing, and rescue plan before entry.",
+        "Atmospheric testing BEFORE entry in this order: (1) Oxygen 19.5-23.5%, (2) Combustible gases below 10% LEL, (3) Toxic gases — CO below 25 ppm, H2S below 10 ppm",
+        "Test atmosphere at multiple depths — top, middle, bottom — heavier-than-air gases (propane, refrigerants) accumulate at bottom; lighter gases (methane) at top",
+        "4-gas meter required minimum: O2, LEL, CO, H2S. Calibrated within manufacturer-specified period and bump-tested daily before use.",
+        "Continuous atmospheric monitoring during entry — initial test alone is insufficient",
+        "Buddy system mandatory: outside attendant must maintain continuous contact (visual, voice, or radio) and must NOT enter to rescue without proper rescue equipment",
+        "Rescue plan documented BEFORE entry: who calls 911, who provides retrieval, what retrieval equipment is on-site",
+        "Retrieval equipment for vertical entries greater than 5 ft: full-body harness with retrieval line, mechanical retrieval device",
+        "Crawl spaces under homes: assess for standing water, sewage gas, rodents, spiders, fiberglass insulation, lead paint, asbestos before entry",
+        "Attic air handlers in summer: temperatures 130-160°F or higher — heat stress protocol (sp-007) applies, limit time in space, work early morning when possible",
+        "Lockout and tagout all energy sources in confined space BEFORE entry: electrical, refrigerant pressure, gas, mechanical",
+        "Know your egress: never enter a space you cannot quickly exit — measure shoulder width against opening",
+        "Do NOT enter confined space alone — OSHA standard 1910.146 violation"
+      ]
+    },
+    {
+      "id": "sp-007",
+      "title": "Heat Stress Prevention",
+      "category": "thermal",
+      "rules": [
+        "Heat stress risk is highest in: attics (130-160°F or more in summer), rooftop work in direct sun, mechanical rooms, boiler rooms",
+        "Pre-hydrate: drink 16 oz water before starting work in any hot environment",
+        "During work: drink 8 oz water every 15-20 minutes — small frequent intake, not large amounts at once",
+        "Electrolyte replacement on extended hot work: sports drinks, electrolyte tablets, salty snacks",
+        "AVOID: alcohol, caffeine, energy drinks — all increase dehydration and heat stress risk",
+        "Work-rest ratios per NIOSH guidelines: heat index 90-103°F = 45 min work / 15 min rest per hour; heat index 103-115°F = 30 min work / 30 min rest per hour; above 115°F = postpone non-emergency work",
+        "Take rest breaks in shade or air-conditioned area to lower core body temperature",
+        "New technicians and those returning after time off require acclimatization — 20% normal workload day 1, increase 20% per day over 7-14 days",
+        "Buddy check: monitor coworkers for symptoms, especially during heat waves",
+        "HEAT EXHAUSTION symptoms (treatable): heavy sweating, weakness, cool/pale/clammy skin, fast weak pulse, nausea, vomiting, headache, fainting",
+        "HEAT EXHAUSTION response: move to cool area, loosen clothing, apply cool wet cloths, sip water, monitor closely, seek medical care if no improvement within 30 minutes",
+        "HEAT STROKE symptoms (LIFE-THREATENING EMERGENCY): high body temperature above 103°F, hot red skin (dry or damp), fast strong pulse, confusion or altered mental status, loss of consciousness, seizure",
+        "HEAT STROKE response: CALL 911 IMMEDIATELY, move person to cool place, cool them as fast as possible with cold water or ice packs to neck/armpits/groin, do NOT give fluids to unconscious person",
+        "Personal cooling gear: cooling vests with ice packs, cooling neck wraps, lightweight light-colored clothing, wide-brim hat",
+        "Schedule heavy work for early morning — peak heat typically 2-5 PM in summer",
+        "Rooftop surface temperatures can reach 160-180°F — use kneeling pads, avoid direct skin contact with surfaces",
+        "Document any heat-related incidents — employer required to investigate per OSHA general duty clause"
+      ]
+    },
+    {
+      "id": "sp-008",
+      "title": "Carbon Monoxide Safety",
+      "category": "chemical",
+      "rules": [
+        "CO is colorless, odorless, tasteless — cannot be detected by human senses. Binds to hemoglobin 200x more readily than oxygen, causing cellular asphyxiation.",
+        "All technicians servicing combustion equipment MUST carry calibrated low-level CO detector or combustion analyzer",
+        "Personal CO monitor alarm levels: 35 ppm = action level (investigate source), 70 ppm = evacuate area, 200+ ppm = life-threatening, evacuate immediately",
+        "INDOOR AIR ACTION LEVELS: 0-9 ppm acceptable background; 9-35 ppm = investigate source immediately; 35-70 ppm = occupants vacate, repair before reoccupying; 70+ ppm = evacuate, call 911 and shut down combustion appliances",
+        "FLUE GAS (combustion analyzer in vent pipe): below 100 ppm air-free = acceptable residential furnace; above 400 ppm = service required; above 1000 ppm = shut down appliance",
+        "SUPPLY AIR test: ANY measurable CO in supply air above 0 ppm indicates cracked heat exchanger — SHUT DOWN UNIT immediately, do not operate",
+        "Heat exchanger crack protocol: (1) verify with multiple methods — visual with scope, CO test in supply air, flame disturbance test with blower on and off; (2) red-tag and shut down; (3) document with photos and CO readings; (4) written notice to customer; (5) do NOT return to service until repaired or replaced",
+        "Customer notification for CO hazard must include: equipment ID, CO readings with date/time/location, safety hazard description, recommended action, technician signature, customer acknowledgment signature",
+        "CO detectors required on every level and within 10 ft of bedrooms per most residential codes — UL 2034 listed. Replace unit at 7-10 years (sensor degrades).",
+        "Combustion analysis required on every furnace tune-up — measure O2, CO, CO2, stack temperature, draft. Document all readings.",
+        "Common CO sources to investigate if found in structure: cracked heat exchanger, flue blockage, competing exhaust appliances (clothes dryer, kitchen exhaust, fireplace causing backdraft), gas water heater spillage, attached garage vehicle exhaust",
+        "If technician feels symptoms (headache, nausea, dizziness, confusion) during furnace work: EXIT immediately, get fresh air, seek medical care — inform ER of CO exposure for proper blood test (COHb level)",
+        "Never operate gasoline-powered equipment (generators, pressure washers) inside or near any building opening",
+        "Maintain CO test records on every combustion service call for liability protection and trend analysis"
+      ]
+    },
+    {
+      "id": "sp-009",
+      "title": "Electrical Arc Flash and Energized Work Safety",
+      "category": "electrical",
+      "rules": [
+        "Arc flash is an explosive release of electrical energy from a short circuit or phase-to-phase fault. Temperatures reach 35,000°F (4x hotter than sun surface). Pressure waves throw victims, rupture eardrums, and propel molten metal projectiles.",
+        "Highest arc flash risk activities: opening energized panels, racking breakers, voltage testing inside live commercial equipment, working near 480V or higher",
+        "NFPA 70E governs electrical safety in the workplace — HVAC technicians working in commercial and industrial settings must be familiar with requirements",
+        "Always de-energize before working when at all possible — this is the only truly safe condition",
+        "If energized work is unavoidable: written energized work permit required per NFPA 70E, documented approach boundaries, qualified electrician only",
+        "PPE Categories based on incident energy: CAT 1 (4 cal/cm2) = arc-rated shirt/pants, safety glasses, leather gloves — typical residential 240V work; CAT 2 (8 cal/cm2) = arc-rated coverall, arc flash face shield plus balaclava, hearing protection — typical 480V commercial",
+        "Remove all metal jewelry before electrical work: rings, watches, necklaces, metal-frame glasses become conductors and projectiles in arc flash event",
+        "Wear only natural fiber (cotton, wool) or arc-rated clothing — synthetic fabrics (nylon, polyester) melt and adhere to skin",
+        "Use insulated hand tools rated for system voltage (1000V rated for commercial work)",
+        "Test before touch: verify de-energized with CAT III or CAT IV rated meter (for panel and utility-side work)",
+        "Test meter on known live source BEFORE and AFTER testing allegedly de-energized circuit",
+        "Lockout/tagout: personal lock and tag, key in technician's pocket, only the person who applied the lock removes it",
+        "Never share lockout key with another person — each person applies their own lock",
+        "Capacitor discharge: motor run capacitors hold lethal charge for several minutes after power off — use 20kΩ 5W resistor with insulated leads to safely discharge before handling",
+        "Wet conditions: do NOT perform energized electrical work — postpone or de-energize and wait",
+        "Know when to call a licensed electrician: panel modifications beyond simple breaker replacement, service entrance work, conductor sizing changes, any work above 600V, commercial switchgear or MCC work",
+        "Working alone on energized equipment is prohibited under NFPA 70E"
       ]
     }
   ]

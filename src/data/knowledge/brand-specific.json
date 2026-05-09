@@ -1,10 +1,18 @@
 {
   "category": "brand-specific",
   "title": "Brand-Specific Knowledge & Quirks",
-  "lastUpdated": "2026-03-14",
+  "lastUpdated": "2026-05-08",
   "brands": {
     "Carrier": {
-      "alsoKnown": ["Bryant", "Payne", "Day & Night", "Heil", "Tempstar", "KeepRite", "Comfortmaker"],
+      "alsoKnown": [
+        "Bryant",
+        "Payne",
+        "Day & Night",
+        "Heil",
+        "Tempstar",
+        "KeepRite",
+        "Comfortmaker"
+      ],
       "parentCompany": "Carrier Global (was United Technologies)",
       "commonPlatforms": {
         "Infinity": "Top tier - communicating system with Greenspeed variable speed compressor. Uses Infinity Touch thermostat. Error codes on thermostat display.",
@@ -21,7 +29,10 @@
       "modelNumberDecoder": "Example: 24ACC636A003 → 24=residential, ACC=model series, 6=SEER tier, 36=36000 BTU (3 ton), A=revision, 003=config"
     },
     "Trane": {
-      "alsoKnown": ["American Standard", "RunTru (budget line)"],
+      "alsoKnown": [
+        "American Standard",
+        "RunTru (budget line)"
+      ],
       "parentCompany": "Trane Technologies (was Ingersoll Rand)",
       "commonPlatforms": {
         "XV": "Premium - variable speed compressor. Communicating with ComfortLink II.",
@@ -38,7 +49,13 @@
       "modelNumberDecoder": "Example: 4TTR6036J1000A → 4=residential, TTR=model, 6=SEER tier, 036=36000 BTU, J=revision, 1000=config, A=voltage"
     },
     "Lennox": {
-      "alsoKnown": ["Allied (commercial)", "Aire-Flo (budget)", "Armstrong Air", "Ducane", "Concord"],
+      "alsoKnown": [
+        "Allied (commercial)",
+        "Aire-Flo (budget)",
+        "Armstrong Air",
+        "Ducane",
+        "Concord"
+      ],
       "parentCompany": "Lennox International",
       "commonPlatforms": {
         "Signature (SL)": "Premium - variable speed. iComfort smart thermostat integration.",
@@ -56,7 +73,10 @@
       "modelNumberDecoder": "Example: XC21-036-230 → XC21=model, 036=36000 BTU, 230=voltage"
     },
     "Goodman": {
-      "alsoKnown": ["Amana", "Daikin (parent company since 2012)"],
+      "alsoKnown": [
+        "Amana",
+        "Daikin (parent company since 2012)"
+      ],
       "parentCompany": "Daikin Industries",
       "commonPlatforms": {
         "Amana AVXC/ASXC": "Premium - communicating variable speed.",
@@ -93,7 +113,10 @@
       "diagnosticTool": "MELCloud or Mitsubishi diagnostic tool (MHK2) can pull detailed fault history from indoor unit memory."
     },
     "Daikin": {
-      "alsoKnown": ["Goodman (subsidiary)", "Amana (subsidiary)"],
+      "alsoKnown": [
+        "Goodman (subsidiary)",
+        "Amana (subsidiary)"
+      ],
       "parentCompany": "Daikin Industries (Japan)",
       "commonPlatforms": {
         "Fit": "Premium residential - slim profile, inverter compressor, R-32 refrigerant.",
@@ -109,6 +132,155 @@
       ],
       "warrantyNotes": "Registered: 12-year parts. Unregistered: 5-year. VRV: varies by project.",
       "r32Notes": "R-32 is becoming the standard replacement for R-410A. Lower GWP. Mildly flammable (A2L). Same pressure range as R-410A but slightly higher efficiency. Requires R-32-rated gauges and recovery machines."
+    },
+    "Rheem": {
+      "alsoKnown": [
+        "Ruud",
+        "Richmond",
+        "WeatherKing"
+      ],
+      "parentCompany": "Rheem Manufacturing Company (Paloma Industries owned)",
+      "commonPlatforms": {
+        "Prestige (RA20/RP20)": "Top tier - variable speed inverter compressor with EcoNet smart system integration. Communicating system with diagnostic data streaming.",
+        "Classic Plus (RA17/RP17)": "Mid-tier - two-stage scroll compressor, good efficiency, EcoNet-compatible.",
+        "Classic (RA14/RA16/RP14)": "Standard line - single-stage, reliable workhorse units, widely available parts.",
+        "Value Series": "Entry-level builder-grade units, basic features."
+      },
+      "knownIssues": [
+        "Some 2013-2018 evaporator coil drain pans: cracking issue causing water leaks - check for extended service bulletin coverage",
+        "EcoNet smart system: occasional WiFi connectivity drops, app slowness - firmware updates resolve most issues",
+        "Older Classic series furnaces: secondary heat exchanger condensate corrosion in high-humidity climates",
+        "Prestige inverter boards: sensitive to power surges, surge protection strongly recommended",
+        "Pre-2010 units: silicon carbide ignitors fail more frequently than SiN replacements - upgrade when servicing",
+        "Overall reputation: solid mid-market reliability, parts widely available, fair pricing on components"
+      ],
+      "warrantyNotes": "Registered: 10-year parts standard, 10-year compressor. Some Prestige units: lifetime compressor (residential, original owner). Unregistered: 5-year base. Heat exchanger: 20-year or lifetime varies by model.",
+      "modelNumberDecoder": "Example: RA1748AJ1NA → RA=A/C residential, 17=SEER tier, 48=48000 BTU (4 ton), AJ=revision/config, 1=phase, NA=region. Ruud equivalent uses UA prefix for same units.",
+      "diagnosticTool": "EcoNet app for smart-equipped units provides fault codes and historical data. Rheem Pro Partner Portal accesses service bulletins and diagnostic info."
+    },
+    "York": {
+      "alsoKnown": [
+        "Luxaire",
+        "Coleman",
+        "Champion",
+        "Fraser-Johnston"
+      ],
+      "parentCompany": "Johnson Controls",
+      "commonPlatforms": {
+        "Affinity YXV/YZV": "Top tier - variable-speed modulating inverter compressor with communicating controls. Best efficiency in lineup, up to 26 SEER2.",
+        "Affinity YP9C/YXT": "Premium two-stage scroll - high efficiency, communicating capable with Hx3 thermostat.",
+        "LX Series (TCHE/TCJD)": "Mid-range single/two-stage units, good value.",
+        "Latitude Series": "Budget builder-grade line, single-stage.",
+        "Sunline (commercial)": "Commercial RTU line - 3-25 ton capacities, common in light commercial work."
+      },
+      "knownIssues": [
+        "Older Affinity boards (2008-2014): communicating thermostat compatibility issues, board failures common at 8-10 year mark - $400-700 replacement",
+        "Simplicity Smart Equipment commercial RTUs: communication module failures, wired BACnet preferred over wireless",
+        "Pre-2012 evaporator coils: formicary corrosion issues on some models - check serial number against extended warranty bulletin",
+        "YXV inverter drives: surge sensitivity - factory recommends whole-home surge protection",
+        "Strong commercial/industrial line - strong dealer network for commercial, residential dealer network thinner in some regions",
+        "Coleman/Luxaire are essentially identical units rebranded for independent dealer channels"
+      ],
+      "warrantyNotes": "Registered: 10-year parts + 10-year compressor (residential). Unregistered: 5-year. Some Affinity: limited lifetime compressor with registration. Commercial units: typically 1-year parts + 5-year compressor with extended options.",
+      "modelNumberDecoder": "Example: YXV60B36S21 → YXV=Affinity variable speed, 60=SEER2 nominal, B=revision, 36=36000 BTU, S=split system, 21=voltage/config code",
+      "diagnosticTool": "York RFC (Residential Field Communicator) tool for Affinity systems. UPGNet portal for service bulletins. Simplicity SE app for commercial Sunline units."
+    },
+    "Bosch": {
+      "parentCompany": "Robert Bosch GmbH (Germany)",
+      "commonPlatforms": {
+        "IDS Premium Connected": "Top tier - inverter ducted split heat pump, up to 20.5 SEER2, cold-climate capable to -4 degrees F, EasyAir thermostat communicating.",
+        "IDS 2.0": "Standard inverter ducted split - very efficient, quiet, mid-tier price point.",
+        "BOVA / BOVB": "Inverter air-source heat pump compact line - emerging product family.",
+        "Greentherm tankless water heaters": "Companion product line - separate product category from HVAC."
+      },
+      "knownIssues": [
+        "Inverter board failures: relatively expensive ($1200+), limited stocking dealers - parts lead time can be 1-3 weeks",
+        "Proprietary diagnostic procedures: not all aftermarket techs are familiar - factory service training strongly recommended",
+        "Limited dealer network: compared to Carrier/Trane/Lennox, fewer authorized dealers - service in rural areas can be challenging",
+        "EasyAir thermostat communication: requires specific wiring (4-conductor minimum), not interchangeable with standard 24V thermostats without bypass kit",
+        "Some early IDS units (2018-2020): firmware bugs causing inverter shutdown in extreme conditions - update available via authorized tech",
+        "Refrigerant: uses R-410A on most current models, R-32 transition starting 2025-2026",
+        "Generally very efficient and quiet operation - reliability when properly serviced is excellent"
+      ],
+      "warrantyNotes": "Registered: 10-year parts + 10-year compressor. Some IDS Premium models: lifetime compressor with registration. Standard: 5-year parts/compressor unregistered.",
+      "modelNumberDecoder": "Example: BOVA-36HDN1-M20G → BOVA=model series, 36=36000 BTU, HDN1=heating designation, M20G=configuration/voltage.",
+      "diagnosticTool": "Bosch Service Tool (BST) - proprietary handheld diagnostic for inverter systems. Required for advanced fault codes and parameter adjustments. EasyAir app provides limited end-user diagnostics."
+    },
+    "LG": {
+      "parentCompany": "LG Electronics (South Korea)",
+      "commonPlatforms": {
+        "Art Cool Mirror / Gallery": "Premium decorative wall-mount ductless - mirrored or framed art-display fronts, popular high-end residential.",
+        "LSN/LSU Standard Series": "Standard single-zone ductless wall-mount units - good value, ThinQ smart integration.",
+        "Multi F / Multi F MAX": "Multi-zone ductless - up to 8 indoor units on single outdoor condenser.",
+        "Multi V (VRF)": "Commercial variable refrigerant flow - competes with Mitsubishi City Multi and Daikin VRV. Multi V 5 latest residential-friendly version.",
+        "LGRED cold climate": "Hyper-heating designation - rated heating to -13 degrees F (5 degrees F sustained at full capacity)."
+      },
+      "knownIssues": [
+        "CH05 error: communication failure between indoor and outdoor units - check polarity and continuity of communication wire (typically 14-gauge stranded)",
+        "CH21 error: high-pressure compressor protection - check refrigerant overcharge, blocked condenser, or DC fan motor failure",
+        "CH38 error: outdoor temp sensor fault - typically thermistor failure on outdoor coil ($30-50 part)",
+        "CH07 error: indoor unit operation mode mismatch on multi-zone systems - all indoor units must operate same mode (heat OR cool, not both) on standard heat-pump multi-zones",
+        "Drain pump on Art Cool units: prone to algae buildup, requires annual cleaning",
+        "Inverter PCB on outdoor units: surge-sensitive, surge protection required for warranty in some cases",
+        "Multi V VRF: requires LG-certified design and commissioning - improper line set sizing causes oil return issues",
+        "Communication wire: must be shielded twisted-pair for runs over 100ft to avoid interference",
+        "Thermistor failures more common than competitors - keep thermistor kit on truck for LG service calls"
+      ],
+      "warrantyNotes": "Registered: 10-year compressor + 5-year parts (residential ductless). Multi V: 10-year compressor + 1-year parts standard, extended packages available.",
+      "modelNumberDecoder": "Example: LAN120HYV1 → L=LG, AN=Art Cool wall-mount indoor, 120=12000 BTU (1 ton), HY=heat pump high efficiency, V1=voltage/revision. Outdoor: LAU120HYV1 (matched outdoor unit).",
+      "diagnosticTool": "LGMV (LG Monitoring View) - PC-based diagnostic software connecting via service port on outdoor PCB. Provides real-time data for pressures, temps, EEV positions, compressor frequency. Essential for Multi V troubleshooting. LG Air Solution mobile app for ThinQ-equipped residential units."
+    },
+    "Heil": {
+      "alsoKnown": [
+        "Tempstar",
+        "Comfortmaker",
+        "Day & Night",
+        "KeepRite",
+        "ICP",
+        "Arcoaire"
+      ],
+      "parentCompany": "Carrier Global (International Comfort Products / ICP division)",
+      "commonPlatforms": {
+        "Ion (HVA9/HVH9)": "Top tier - communicating variable-speed compressor, equivalent to Carrier Infinity but through independent dealer channel.",
+        "QuietComfort Deluxe (HCA6/HCH6)": "Mid-tier - two-stage scroll with Qujet two-stage compressor. Strong sound performance.",
+        "QuietComfort (HSA5/HSH5)": "Standard single-stage - reliable workhorse unit.",
+        "PerformanceBoost / Builder Series": "Entry-level for new construction."
+      },
+      "knownIssues": [
+        "Essentially Carrier/Bryant equipment with different model numbering - same compressors, coils, and major components, distributed through independent dealers",
+        "Ion communicating systems: same Infinity Touch protocol as Carrier - thermostats and controls cross-compatible in most cases",
+        "Service parts often listed under both Carrier and ICP part numbers - cross-reference saves time",
+        "Qujet two-stage compressors: essentially Copeland Ultratech - same servicing as standard Copeland scrolls",
+        "Earlier 2010-2013 N-series furnaces: secondary heat exchanger corrosion on some serial ranges - check service bulletin",
+        "Often more competitively priced than Carrier brand for identical equipment"
+      ],
+      "warrantyNotes": "Registered: 10-year parts + 10-year compressor (residential). Unregistered: 5-year. Heat exchanger: 20-year or lifetime depending on model. Same warranty terms as Carrier-branded equivalents.",
+      "modelNumberDecoder": "Example: HVA9361B → H=Heil, VA=variable-speed A/C, 9=9th tier (Ion), 36=36000 BTU, 1=phase, B=revision. Tempstar/Comfortmaker use TVA/NXA prefixes for equivalent units.",
+      "diagnosticTool": "ION System Control thermostat provides on-screen fault codes for Ion systems (same interface as Carrier Infinity Touch). Standard Carrier diagnostic tools work on Heil/ICP equipment."
+    },
+    "American Standard": {
+      "alsoKnown": [
+        "Trane (sister brand, identical equipment)"
+      ],
+      "parentCompany": "Trane Technologies (was Ingersoll Rand)",
+      "commonPlatforms": {
+        "Platinum (AccuComfort variable speed)": "Top tier - modulating inverter compressor, AccuLink communicating with Gold/Platinum 1050 thermostat. Identical to Trane XV20i.",
+        "Gold (Two-Stage)": "Mid-tier - two-stage scroll compressor, communicating capable. Equivalent to Trane XR/XL line.",
+        "Silver (Single-Stage)": "Standard single-stage - reliable, good value. Equivalent to Trane XR13/XR14.",
+        "AccuClean Whole-Home Air Cleaner": "Add-on electronic air cleaner with 99.98% particle removal - compatible with all American Standard furnaces and air handlers."
+      },
+      "knownIssues": [
+        "Same equipment as Trane - sold through independent dealer channel rather than Trane factory dealer network",
+        "Climatuff scroll compressors: same as Trane - extremely reliable, but when they fail they fail hard (grounded windings most common)",
+        "Spine-Fin condenser coil: same proprietary coil design as Trane - low-pressure rinse only, never pressure wash",
+        "AccuLink communicating thermostats: cross-compatible with Trane ComfortLink systems - same protocol",
+        "Older Platinum 824/850 thermostats (2014-2018): WiFi connectivity issues - firmware updates available",
+        "AccuClean cells: collect dirt requiring quarterly cleaning - skipped maintenance reduces airflow and efficiency",
+        "Pricing typically slightly lower than Trane-branded equivalents through dealer channel - same equipment quality"
+      ],
+      "warrantyNotes": "Registered: 10-year parts + 12-year compressor (Platinum), 10-year compressor (Gold/Silver). Unregistered: 5-year base. AccuClean: 10-year. Identical warranty structure to Trane.",
+      "modelNumberDecoder": "Example: 4A7V0036A1000A → 4=residential, A7V=AccuComfort Platinum variable speed, 0036=36000 BTU, A1000A=revision/config. Letter codes parallel Trane's 4TTV/4TTR system.",
+      "diagnosticTool": "AccuLink Platinum 1050 thermostat displays system fault codes and diagnostic data. American Standard dealer portal for service bulletins. Trane TEM diagnostic tools work identically on American Standard equipment."
     }
   }
 }
